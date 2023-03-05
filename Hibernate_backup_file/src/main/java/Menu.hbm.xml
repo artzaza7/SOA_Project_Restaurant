@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 5, 2023, 2:05:21 PM by Hibernate Tools 6.0.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa_database" name="th.ac.ku.kps.eng.cpe.soaProject.model.Menu" optimistic-lock="none" table="menu">
+        <id name="menuId" type="java.lang.Integer">
+            <column name="menu_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="th.ac.ku.kps.eng.cpe.soaProject.model.MenuType" fetch="select" name="menuType">
+            <column name="menu_type_id" not-null="true"/>
+        </many-to-one>
+        <property name="menuName" type="string">
+            <column length="50" name="menu_name" not-null="true"/>
+        </property>
+        <property name="menuDescription" type="string">
+            <column length="255" name="menu_description" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="menuInCourses" table="menu_in_course">
+            <key>
+                <column name="menu_id" not-null="true"/>
+            </key>
+            <one-to-many class="th.ac.ku.kps.eng.cpe.soaProject.model.MenuInCourse"/>
+        </set>
+    </class>
+</hibernate-mapping>
