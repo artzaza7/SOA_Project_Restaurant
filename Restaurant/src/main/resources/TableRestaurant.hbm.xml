@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 5, 2023, 2:05:21 PM by Hibernate Tools 6.0.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa_database" name="th.ac.ku.kps.eng.cpe.soaProject.model.TableRestaurant" optimistic-lock="none" table="table_restaurant">
+        <id name="tableRestaurantId" type="java.lang.Integer">
+            <column name="table_restaurant_id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="tableRestaurantCode" type="string">
+            <column length="50" name="table_restaurant_code" not-null="true"/>
+        </property>
+        <property name="tableRestaurantNumberOfChair" type="int">
+            <column name="table_restaurant_number_of_chair" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="reservations" table="reservation">
+            <key>
+                <column name="table_restaurant_id" not-null="true"/>
+            </key>
+            <one-to-many class="th.ac.ku.kps.eng.cpe.soaProject.model.Reservation"/>
+        </set>
+    </class>
+</hibernate-mapping>

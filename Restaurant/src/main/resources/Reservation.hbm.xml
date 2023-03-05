@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Mar 5, 2023, 2:05:21 PM by Hibernate Tools 6.0.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="soa_database" name="th.ac.ku.kps.eng.cpe.soaProject.model.Reservation" optimistic-lock="none" table="reservation">
+        <id name="reservationId" type="java.lang.Integer">
+            <column name="reservation_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="th.ac.ku.kps.eng.cpe.soaProject.model.User" fetch="select" name="user">
+            <column name="user_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="th.ac.ku.kps.eng.cpe.soaProject.model.CourseMenu" fetch="select" name="courseMenu">
+            <column name="course_menu_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="th.ac.ku.kps.eng.cpe.soaProject.model.TableRestaurant" fetch="select" name="tableRestaurant">
+            <column name="table_restaurant_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
