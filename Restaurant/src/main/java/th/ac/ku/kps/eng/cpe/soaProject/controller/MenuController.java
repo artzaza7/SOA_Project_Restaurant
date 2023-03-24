@@ -15,42 +15,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import th.ac.ku.kps.eng.cpe.soaProject.model.User;
-import th.ac.ku.kps.eng.cpe.soaProject.service.UserService;
+import th.ac.ku.kps.eng.cpe.soaProject.model.Menu;
+import th.ac.ku.kps.eng.cpe.soaProject.service.MenuService;
 
 
 @RestController
-@RequestMapping("api/v1/users")
-public class UserController {
+@RequestMapping("api/v1/menus")
+public class MenuController {
 	
 	@Autowired
-	private UserService userService;
-	
+	private MenuService menuService;
+
 	@GetMapping("/")
-	public List<User> getUsers() {
-		return (List<User>)userService.getUsers();
-	}
-	
-	@GetMapping("/id/{id}")
-	public User getUserByID(@PathVariable int id) {
-		return (User)userService.getUserByID(id);
-	}
-	
-	@PostMapping("/")
-	public User createUser(@RequestBody User user) {
-		userService.createOrUpdateUser(user);
-		return user;
-	}
-	
-	@PutMapping("/")
-	public User updateUser(@RequestBody User user) {
-		userService.createOrUpdateUser(user);
-		return user;
-	}
-	
-	@DeleteMapping("/{id}")
-	public void deleteUser(@PathVariable int id) {
-		userService.deleteUser(id);
+	public List<Menu> getMenu() {
+		return (List<Menu>) menuService.getMenus();
 	}
 
+	@GetMapping("/id/{id}")
+	public Menu getMenuByID(@PathVariable int id) {
+		return (Menu) menuService.getMenuByID(id);
+	}
+	
+	@GetMapping("/name/{name}")
+	public Menu getMenuByName(@PathVariable String name) {
+		return (Menu) menuService.getMenuByName(name);
+	}
+
+	@PostMapping("/")
+	public Menu createMenu(@RequestBody Menu menu) {
+		menuService.createOrUpdateMenu(menu);
+		return menu;
+	}
+
+	@PutMapping("/")
+	public Menu updateMenu(@RequestBody Menu menu) {
+		menuService.createOrUpdateMenu(menu);
+		return menu;
+	}
+
+	@DeleteMapping("/{id}")
+	public void deleteMenu(@PathVariable int id) {
+		menuService.deleteMenu(id);
+	}
 }

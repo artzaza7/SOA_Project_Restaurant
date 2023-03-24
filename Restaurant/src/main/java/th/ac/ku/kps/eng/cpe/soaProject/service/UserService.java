@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import th.ac.ku.kps.eng.cpe.soaProject.model.User;
 import th.ac.ku.kps.eng.cpe.soaProject.repository.UserRepository;
 
@@ -17,6 +16,18 @@ public class UserService {
 	
 	public List<User> getUsers() {
 		return (List<User>)userRepository.findAll();
+	}
+	
+	public User getUserByID(int id) {
+		return userRepository.findById(id).get();
+	}
+	
+	public void createOrUpdateUser(User user) {
+		userRepository.save(user);
+	}
+	
+	public void deleteUser(int id) {
+		userRepository.deleteById(id);
 	}
 
 }
