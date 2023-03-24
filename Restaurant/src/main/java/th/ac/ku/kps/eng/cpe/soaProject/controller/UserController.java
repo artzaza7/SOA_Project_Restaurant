@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import th.ac.ku.kps.eng.cpe.soaProject.model.User;
 import th.ac.ku.kps.eng.cpe.soaProject.service.UserService;
 
-@Controller
+
+@RestController
 @RequestMapping("api/v1/users")
 public class UserController {
 	
@@ -21,19 +22,9 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping("/")
-	@ResponseBody
 	public List<User> getUsers() {
 		return (List<User>)userService.getUsers();
 	}
 	
-	@GetMapping("/index")
-	public String index() {
-		return "index";
-	}
-	
-	@GetMapping("/home")
-	public String home() {
-		return "pageWithOutUser/home";
-	}
 
 }

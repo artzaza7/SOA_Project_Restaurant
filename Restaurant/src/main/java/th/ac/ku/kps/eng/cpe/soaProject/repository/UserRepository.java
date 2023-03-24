@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import th.ac.ku.kps.eng.cpe.soaProject.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer>{
+public interface UserRepository extends CrudRepository<User, Integer>{
 
 }
