@@ -22,7 +22,11 @@ public class UserService {
 		return userRepository.findById(id).get();
 	}
 	
-	public void createOrUpdateUser(User user) {
+	public void createNewUser(User user) {
+		userRepository.save(user);
+	}
+	
+	public void updateUser(User user) {
 		userRepository.save(user);
 	}
 	

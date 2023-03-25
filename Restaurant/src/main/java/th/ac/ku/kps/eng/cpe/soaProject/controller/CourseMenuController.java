@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,53 +12,49 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import th.ac.ku.kps.eng.cpe.soaProject.model.CourseMenu;
 import th.ac.ku.kps.eng.cpe.soaProject.model.Reservation;
-import th.ac.ku.kps.eng.cpe.soaProject.model.User;
-import th.ac.ku.kps.eng.cpe.soaProject.service.UserService;
-
+import th.ac.ku.kps.eng.cpe.soaProject.service.CourseMenuService;
 
 @RestController
-@RequestMapping("api/v1/users")
-public class UserController {
-	
+@RequestMapping("api/v1/coursemenus")
+public class CourseMenuController {
 	@Autowired
-	private UserService userService;
+	private CourseMenuService courseMenuService;
 	
 	@GetMapping("")
-	public List<User> getUsers() {
-		return (List<User>)userService.getUsers();
+	public List<CourseMenu> getCourseMenus() {
+		return (List<CourseMenu>) courseMenuService.getCourseMenus();
 	}
 	
 	@GetMapping("/{id}")
-	public User getUserByID(@PathVariable int id) {
-		return (User)userService.getUserByID(id);
+	public CourseMenu getCourseMenuByID(@PathVariable int id) {
+		return (CourseMenu)courseMenuService.getCourseMenuByID(id);
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<String> createNewUser(@RequestBody User user) {
-		userService.createNewUser(user);
-		String successMessage = "Create user successfully.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
-		return response;
-	}
-	@PutMapping("/{id}")
-	public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User user) {
-		user.setUserId(id);
-		userService.updateUser(user);
-		String successMessage = "Update user successfully.";
+	public ResponseEntity<String> createNewReservation(@RequestBody CourseMenu courseMenu) {
+		courseMenuService.createNewCourseMenu(courseMenu);
+		String successMessage = "Create courseMenu successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
 	
-	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteUser(@PathVariable int id) {
-		userService.deleteUser(id);
-		String successMessage = "Delete user successfully.";
+	@PutMapping("/{id}")
+	public ResponseEntity<String> updateReservation(@PathVariable int id, @RequestBody CourseMenu courseMenu) {
+		courseMenu.setCourseMenuId(id);
+		courseMenuService.updateCourseMenu(courseMenu);
+		String successMessage = "Update courseMenu successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
-
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deleteReservation(@PathVariable int id) {
+		courseMenuService.deleteCourseMenu(id);
+		String successMessage = "Delete courseMenu successfully.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		return response;
+	}
 }

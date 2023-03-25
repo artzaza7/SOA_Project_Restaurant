@@ -1,4 +1,7 @@
 package th.ac.ku.kps.eng.cpe.soaProject.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 // Generated Mar 5, 2023, 2:05:21 PM by Hibernate Tools 6.0.2.Final
 
 /**
@@ -7,8 +10,11 @@ package th.ac.ku.kps.eng.cpe.soaProject.model;
 public class Reservation implements java.io.Serializable {
 
 	private Integer reservationId;
+	@JsonIgnore
 	private User user;
+	@JsonIgnore
 	private CourseMenu courseMenu;
+	@JsonIgnore
 	private TableRestaurant tableRestaurant;
 
 	public Reservation() {
