@@ -35,6 +35,11 @@ public class TableRestaurantController {
 		return (TableRestaurant)tableRestaurantService.getTableByID(id);
 	}
 	
+	@GetMapping("/code/{code}")
+	public TableRestaurant getTablesByCode(@PathVariable String code) {
+		return (TableRestaurant)tableRestaurantService.getTableByCode(code);
+	}
+	
 	@PostMapping("")
 	public ResponseEntity<String> createNewTable(@RequestBody TableRestaurant table) {
 		tableRestaurantService.createNewTable(table);

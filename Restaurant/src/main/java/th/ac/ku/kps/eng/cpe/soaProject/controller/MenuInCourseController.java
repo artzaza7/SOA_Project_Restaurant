@@ -41,7 +41,7 @@ public class MenuInCourseController {
 		return (List<MenuInCourse>) menuInCourseService.getMenuInCourse();
 	}
 
-	@GetMapping("/id/{id}")
+	@GetMapping("/{id}")
 	public MenuInCourse getMenuInCourseByID(@PathVariable int id) {
 		return (MenuInCourse) menuInCourseService.getMenuInCourseByID(id);
 	}

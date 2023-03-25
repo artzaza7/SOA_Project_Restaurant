@@ -32,7 +32,7 @@ public class MenuTypeController {
 		return (List<MenuType>) menuTypeService.getMenuType();
 	}
 
-	@GetMapping("/id/{id}")
+	@GetMapping("/{id}")
 	public MenuType getMenuTypeByID(@PathVariable int id) {
 		return (MenuType) menuTypeService.getMenuTypeByID(id);
 	}

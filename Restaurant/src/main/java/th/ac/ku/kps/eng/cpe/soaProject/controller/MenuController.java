@@ -40,7 +40,7 @@ public class MenuController {
 		return (List<Menu>) menuService.getMenus();
 	}
 
-	@GetMapping("/id/{id}")
+	@GetMapping("/{id}")
 	public Menu getMenuByID(@PathVariable int id) {
 		return (Menu) menuService.getMenuByID(id);
 	}

@@ -24,6 +24,10 @@ public class TableRestaurantService {
 		return tableRestaurantRepository.findById(id).get();
 	}
 	
+	public TableRestaurant getTableByCode(String code){
+		return tableRestaurantRepository.findByCode(code);
+	}
+	
 	public void createNewTable(TableRestaurant table) {
 		tableRestaurantRepository.save(table);
 	}

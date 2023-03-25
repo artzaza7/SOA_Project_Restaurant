@@ -29,7 +29,7 @@ public class CourseMenuController {
 		return (List<CourseMenu>) courseMenuService.getCourseMenus();
 	}
 	
-	@GetMapping("/id/{id}")
+	@GetMapping("/{id}")
 	public CourseMenu getCourseMenuByID(@PathVariable int id) {
 		return (CourseMenu)courseMenuService.getCourseMenuByID(id);
 	}
