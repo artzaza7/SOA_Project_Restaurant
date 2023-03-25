@@ -11,7 +11,7 @@
           <router-link to="/reservation" class="nav-link m-1 bg-light btn">Reservation</router-link>
         </li> 
         <li class="nav-item">
-          <router-link to="/login" class="nav-link m-1 bg-light btn">Login</router-link>
+          <router-link to="/view" class="nav-link m-1 bg-light btn">Login</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/create" class="nav-link m-1 bg-light btn">Sign up</router-link>
@@ -19,7 +19,7 @@
        
       </ul>
     </nav>
-
+    
     <!-- Router View -->
     <div class="container mt-5">
       <router-view></router-view>

@@ -51,4 +51,5 @@ import MenuCard from '../components/MenuCard.vue'
         <MenuCard/>
     </div>
   </div>
+  
 </template>
