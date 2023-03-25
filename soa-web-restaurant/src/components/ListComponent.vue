@@ -14,6 +14,7 @@
                         <td>{{ user.userFirstname }}</td>
                         <td>{{ user.userLastname }}</td>
                         <td>{{ user.userPhonenumber }}</td>
+                         
                     </tr>
                 </tbody>
                 <!-- <h3>{{ info }}</h3> -->
@@ -24,8 +25,8 @@
 
 <script>
 import axios from 'axios';
-export default {
 
+export default {
     data() {
         return {
             info: null
@@ -33,10 +34,11 @@ export default {
     },
     mounted() {
         axios
-            .get('http://localhost:8080/api/v1/users/')
+            .get('http://localhost:8081/api/v1/users')
             .then(response => {(this.info = response.data);
             console.log(response.data)})
 
     }
 }
+
 </script>

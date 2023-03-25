@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         saveData() {
-            axios.post("http://localhost:8080/api/v1/users/", this.user)
+            axios.post("http://localhost:8081/api/v1/users/", this.user)
                 .then(
                     ({ data }) => {
                         console.log(data);
