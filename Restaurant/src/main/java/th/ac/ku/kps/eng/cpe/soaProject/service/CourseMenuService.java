@@ -23,6 +23,10 @@ public class CourseMenuService {
 		return courseMenuRepository.findById(id).get();
 	}
 	
+	public CourseMenu getCourseMenuByName(String name){
+		return courseMenuRepository.findByName(name);
+	}
+	
 	public void createNewCourseMenu(CourseMenu courseMenu) {
 		courseMenuRepository.save(courseMenu);
 	}
