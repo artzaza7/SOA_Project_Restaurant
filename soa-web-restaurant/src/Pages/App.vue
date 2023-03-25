@@ -13,6 +13,9 @@
         <li class="nav-item">
           <router-link to="/view" class="nav-link m-1 bg-light btn">Login</router-link>
         </li>
+        <!-- <li class="nav-item">
+          <router-link to="/sign-up" class="nav-link m-1 bg-light">Sign Up</router-link>
+        </li> -->
         <li class="nav-item">
           <router-link to="/create" class="nav-link m-1 bg-light btn">Sign up</router-link>
         </li>
