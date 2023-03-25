@@ -21,7 +21,7 @@ public class User implements java.io.Serializable {
 	private String userFirstname;
 	private String userLastname;
 	private String userPhonenumber;
-	@JsonIgnore
+//	@JsonIgnore
 	private Set reservations = new HashSet(0);
 
 	public User() {

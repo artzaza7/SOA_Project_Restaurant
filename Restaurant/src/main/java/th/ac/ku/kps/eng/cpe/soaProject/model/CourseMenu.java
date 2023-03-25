@@ -13,9 +13,9 @@ public class CourseMenu implements java.io.Serializable {
 
 	private Integer courseMenuId;
 	private String courseMenuName;
-	@JsonIgnore
+//	@JsonIgnore
 	private Set menuInCourses = new HashSet(0);
-	@JsonIgnore
+//	@JsonIgnore
 	private Set reservations = new HashSet(0);
 
 	public CourseMenu() {

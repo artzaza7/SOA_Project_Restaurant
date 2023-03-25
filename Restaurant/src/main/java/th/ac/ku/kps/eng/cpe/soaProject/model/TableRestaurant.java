@@ -14,7 +14,7 @@ public class TableRestaurant implements java.io.Serializable {
 	private Integer tableRestaurantId;
 	private String tableRestaurantCode;
 	private int tableRestaurantNumberOfChair;
-	@JsonIgnore
+//	@JsonIgnore
 	private Set reservations = new HashSet(0);
 
 	public TableRestaurant() {
