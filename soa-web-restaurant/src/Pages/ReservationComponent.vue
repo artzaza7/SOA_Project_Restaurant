@@ -1,9 +1,9 @@
 <template>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" v-for="user in info" v-bind:key="user.userId">
     
     <div class="col"></div>
     <div class="col">
-      <h4 class="mb-3">Reservation_id : Variable</h4>
+      <h4 class="mb-3">Reservation_id : {{ user.reservations }}</h4>
     <h4 class="mb-3">User_id : Variable</h4>
       <h4 class="mb-3">Select Table</h4>
       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -31,3 +31,21 @@
   </div>
   
 </template>
+
+<script>
+import axios from 'axios';
+export default {
+    data() {
+        return {
+            info: null
+        }
+    },
+    mounted() {
+        axios
+            .get('http://localhost:8081/api/v1/users')
+            .then(response => {(this.info = response.data);
+            console.log(response.data)})
+
+    }
+}
+</script>
