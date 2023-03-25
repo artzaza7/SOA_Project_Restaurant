@@ -10,8 +10,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class MenuInCourse implements java.io.Serializable {
 
 	private Integer menuInCourseId;
+	@JsonIgnore
 	private CourseMenu courseMenu;
-//	@JsonIgnore
+	@JsonIgnore
 	private Menu menu;
 
 	public MenuInCourse() {

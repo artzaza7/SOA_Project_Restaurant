@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import th.ac.ku.kps.eng.cpe.soaProject.model.Reservation;
+import io.swagger.v3.oas.annotations.Parameter;
 import th.ac.ku.kps.eng.cpe.soaProject.model.User;
 import th.ac.ku.kps.eng.cpe.soaProject.service.UserService;
 
@@ -40,12 +40,13 @@ public class UserController {
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<String> createNewUser(@RequestBody User user) {
+	public ResponseEntity<String> createUser(@RequestBody User user) {
 		userService.createNewUser(user);
-		String successMessage = "Create user successfully.";
+		String successMessage = "Create Menu Success.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
+	
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User user) {
 		user.setUserId(id);
@@ -58,9 +59,13 @@ public class UserController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable int id) {
 		userService.deleteUser(id);
-		String successMessage = "Delete user successfully.";
+		String successMessage = "Delete Menu Success.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
 
+	@GetMapping("/")
+	public User getUserByUserAndPass(@Parameter(name="username")String username, @Parameter(name="password")String password) {
+		return (User)userService.getByUserAndPass(username, password);
+	}
 }
