@@ -10,4 +10,5 @@ public interface TableRestaurantRepository extends CrudRepository<TableRestauran
 
 	@Query("from TableRestaurant t where t.tableRestaurantCode = :code")
 	public TableRestaurant findByCode(@Param("code")String code);
+	
 }
