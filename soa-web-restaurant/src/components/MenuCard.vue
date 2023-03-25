@@ -1,0 +1,26 @@
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+</script>
+<template>
+      <div class="card" style="width: 100%">
+        <img
+          class="card-img-top"
+          src="https://cdn.eatigo.com/filters:format(webp)/eatigo_dd7b5b79948e4b32ca3c9cae4aee43ec_20180103122415_1920.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            @HelloWorld
+          </h5>
+          <p class="card-text">
+            Steak
+          </p>
+        </div>
+      </div>
+   
+</template>

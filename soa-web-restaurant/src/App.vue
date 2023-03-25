@@ -4,6 +4,10 @@
     <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
       <router-link to="/" class="navbar-brand float-left"></router-link>
       <ul class="nav nav-bar flex-row float-right">
+        
+        <li class="nav-item">
+          <router-link to="/create" class="nav-link m-1 bg-light">Create User</router-link>
+        </li>
         <li class="nav-item">
           <router-link to="/" class="nav-link m-1 bg-light">Create User</router-link>
         </li>
