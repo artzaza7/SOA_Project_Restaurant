@@ -1,4 +1,4 @@
-# soa-web-restaurant
+# vue-mevn-crud
 
 ## Project setup
 ```
