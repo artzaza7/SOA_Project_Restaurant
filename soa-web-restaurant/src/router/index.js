@@ -4,8 +4,8 @@ import { createWebHistory, createRouter } from "vue-router";
 import CreateComponent from "@/components/CreateComponent.vue";
 import EditComponent from "@/components/EditComponent.vue";
 import ListComponent from "@/components/ListComponent.vue";
-import HomeComponent from "@/components/HomeComponent.vue";
-
+import HomeComponent from "@/Pages/HomeComponent.vue";
+import ReservationComponent from "@/Pages/ReservationComponent.vue";
 const routes = [
   {
     path: "/",
@@ -13,6 +13,12 @@ const routes = [
     component: HomeComponent,
   },
 
+  {
+    path: "/reservation",
+    name: "reservation",
+    component: ReservationComponent,
+  },
+  
   {
     path: "/create",
     name: "create",
