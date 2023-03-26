@@ -26,9 +26,9 @@ public class MenuService {
 		return (Menu) menuRepository.findByName(name);
 	}
 	
-//	public Menu getType() {
-//		return menuRepository.getWithType();
-//	}
+	public List<Menu> getMenuByCourse(String name) {
+	return (List<Menu>) menuRepository.findByCourse(name);
+	}
 	
 	public void createOrUpdateMenu(Menu menu) {
 		menuRepository.save(menu);

@@ -49,6 +49,11 @@ public class MenuController {
 	public Menu getMenuByName(@PathVariable String name) {
 		return (Menu) menuService.getMenuByName(name);
 	}
+	
+	@GetMapping("/course/{name}")
+	public List<Menu> getMenuByCourse(@PathVariable String name) {
+		return (List<Menu>) menuService.getMenuByCourse(name);
+	}
 
 	@PostMapping("")
 	public ResponseEntity<String> createMenu(@RequestBody JsonNode body) {
