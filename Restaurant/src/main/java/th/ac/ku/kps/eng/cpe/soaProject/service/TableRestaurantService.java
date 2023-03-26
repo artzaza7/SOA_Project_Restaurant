@@ -20,6 +20,10 @@ public class TableRestaurantService {
 		return (List<TableRestaurant>)tableRestaurantRepository.findAll();
 	}
 	
+	public List<TableRestaurant> getTablesByUser(int id){
+		return (List<TableRestaurant>)tableRestaurantRepository.findByUser(id);
+	}
+	
 	public TableRestaurant getTableByID(int id){
 		return tableRestaurantRepository.findById(id).get();
 	}
