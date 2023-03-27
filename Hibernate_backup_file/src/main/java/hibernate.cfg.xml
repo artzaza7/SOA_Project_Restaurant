@@ -3,18 +3,10 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory>
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/soa_database</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-		
-		<mapping resource="CourseMenu.hbm.xml" />
-		<mapping resource="Menu.hbm.xml" />
-		<mapping resource="MenuInCourse.hbm.xml" />
-		<mapping resource="MenuType.hbm.xml" />
-		<mapping resource="Reservation.hbm.xml" />
-		<mapping resource="TableRestaurant.hbm.xml" />
-		<mapping resource="User.hbm.xml" />
-	</session-factory>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/soa_database</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    </session-factory>
 </hibernate-configuration>

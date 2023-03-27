@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated Mar 5, 2023, 2:05:21 PM by Hibernate Tools 6.0.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2023, 9:07:29 PM by Hibernate Tools 6.0.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class catalog="soa_database" name="th.ac.ku.kps.eng.cpe.soaProject.model.MenuType" optimistic-lock="none" table="menu_type">
         <id name="menuTypeId" type="java.lang.Integer">
@@ -11,7 +11,7 @@
         </property>
         <set fetch="select" inverse="true" lazy="true" name="menus" table="menu">
             <key>
-                <column name="menu_type_id" not-null="true"/>
+                <column name="menu_type_id"/>
             </key>
             <one-to-many class="th.ac.ku.kps.eng.cpe.soaProject.model.Menu"/>
         </set>

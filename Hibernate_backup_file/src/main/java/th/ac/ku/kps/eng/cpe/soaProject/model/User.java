@@ -1,5 +1,5 @@
 package th.ac.ku.kps.eng.cpe.soaProject.model;
-// Generated Mar 5, 2023, 2:05:21 PM by Hibernate Tools 6.0.2.Final
+// Generated Mar 27, 2023, 9:07:29 PM by Hibernate Tools 6.0.2.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +15,7 @@ public class User implements java.io.Serializable {
 	private String userFirstname;
 	private String userLastname;
 	private String userPhonenumber;
+	private String userType;
 	private Set reservations = new HashSet(0);
 
 	public User() {
@@ -30,12 +31,13 @@ public class User implements java.io.Serializable {
 	}
 
 	public User(String userUsername, String userPassword, String userFirstname, String userLastname,
-			String userPhonenumber, Set reservations) {
+			String userPhonenumber, String userType, Set reservations) {
 		this.userUsername = userUsername;
 		this.userPassword = userPassword;
 		this.userFirstname = userFirstname;
 		this.userLastname = userLastname;
 		this.userPhonenumber = userPhonenumber;
+		this.userType = userType;
 		this.reservations = reservations;
 	}
 
@@ -85,6 +87,14 @@ public class User implements java.io.Serializable {
 
 	public void setUserPhonenumber(String userPhonenumber) {
 		this.userPhonenumber = userPhonenumber;
+	}
+
+	public String getUserType() {
+		return this.userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
 	public Set getReservations() {
