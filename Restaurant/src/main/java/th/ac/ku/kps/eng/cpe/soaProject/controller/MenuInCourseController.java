@@ -26,9 +26,9 @@ import th.ac.ku.kps.eng.cpe.soaProject.service.CourseMenuService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuInCourseService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuService;
 
-@CrossOrigin("http://localhost:8081/")
 @RestController
 @RequestMapping("api/v1/menuInCourse")
+@CrossOrigin("http://localhost:8081/")
 public class MenuInCourseController {
 	
 	@Autowired
@@ -56,15 +56,21 @@ public class MenuInCourseController {
 		menuInCourse.setCourseMenu(courseMenu);
 		menuInCourse.setMenu(menu);
 		menuInCourseService.createOrUpdateMenuInCourse(menuInCourse);
-		String successMessage = "Create Menu Success.";
+		String successMessage = "Create Menu Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
 
-	@PutMapping("")
-	public ResponseEntity<String> updateMenuInCourse(@RequestBody MenuInCourse MenuInCourse) {
-		menuInCourseService.createOrUpdateMenuInCourse(MenuInCourse);
-		String successMessage = "Update Menu Success.";
+	@PutMapping("/{id}")
+	public ResponseEntity<String> updateMenuInCourse(@RequestBody JsonNode body, @PathVariable int id) {
+		MenuInCourse menuInCourse = new MenuInCourse();
+		Menu menu = menuService.getMenuByID(body.get("menu").asInt());
+		CourseMenu courseMenu = coursMenuService.getCourseMenuByID(body.get("courseMenu").asInt());
+		menuInCourse.setMenuInCourseId(id);
+		menuInCourse.setCourseMenu(courseMenu);
+		menuInCourse.setMenu(menu);
+		menuInCourseService.createOrUpdateMenuInCourse(menuInCourse);
+		String successMessage = "Update Menu Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
@@ -72,7 +78,7 @@ public class MenuInCourseController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteMenuInCourse(@PathVariable int id) {
 		menuInCourseService.deleteMenuInCourse(id);
-		String successMessage = "Delete Menu Success.";
+		String successMessage = "Delete Menu Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}

@@ -26,9 +26,9 @@ import th.ac.ku.kps.eng.cpe.soaProject.service.ReservationService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.TableRestaurantService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.UserService;
 
-@CrossOrigin("http://localhost:8081/")
 @RestController
 @RequestMapping("api/v1/reservations")
+@CrossOrigin("http://localhost:8081/")
 public class ReservationController {
 	@Autowired
 	private ReservationService reservationService;
@@ -63,7 +63,7 @@ public class ReservationController {
 		createReservation.setTableRestaurant(tableRestaurant);
 		
 		reservationService.createNewReservation(createReservation);
-		String successMessage = "Create reservation successfully.";
+		String successMessage = "Create reservation Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
@@ -80,14 +80,14 @@ public class ReservationController {
 		updateReservation.setCourseMenu(courseMenu);
 		updateReservation.setTableRestaurant(tableRestaurant);
 		reservationService.updateReservation(updateReservation);
-		String successMessage = "Update reservation successfully.";
+		String successMessage = "Update reservation Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteReservation(@PathVariable int id) {
 		reservationService.deleteReservation(id);
-		String successMessage = "Delete reservation successfully.";
+		String successMessage = "Delete reservation Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}

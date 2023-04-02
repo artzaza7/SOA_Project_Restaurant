@@ -23,6 +23,10 @@ public class MenuTypeService {
 		return menuTypeRepository.findById(id).get();
 	}
 	
+	public MenuType getMenuTypeByMenuID(int id) {
+		return menuTypeRepository.findByMenuID(id);
+	}
+	
 	public MenuType getMenuTypeByName(String name) {
 		return (MenuType) menuTypeRepository.findByName(name);
 	}

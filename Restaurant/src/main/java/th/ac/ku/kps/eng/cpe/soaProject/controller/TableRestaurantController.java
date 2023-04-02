@@ -19,9 +19,9 @@ import th.ac.ku.kps.eng.cpe.soaProject.model.Menu;
 import th.ac.ku.kps.eng.cpe.soaProject.model.TableRestaurant;
 import th.ac.ku.kps.eng.cpe.soaProject.service.TableRestaurantService;
 
-@CrossOrigin("http://localhost:8081/")
 @RestController
 @RequestMapping("api/v1/tables")
+@CrossOrigin("http://localhost:8081/")
 public class TableRestaurantController {
 	
 	@Autowired
@@ -49,25 +49,38 @@ public class TableRestaurantController {
 	
 	@PostMapping("")
 	public ResponseEntity<String> createNewTable(@RequestBody TableRestaurant table) {
-		tableRestaurantService.createNewTable(table);
-		String successMessage = "Create table successfully.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		TableRestaurant check = tableRestaurantService.getTableByCode(table.getTableRestaurantCode());
+		if(check == null) {
+			tableRestaurantService.createNewTable(table);
+			String successMessage = "Create table Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate Table Code.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateTable(@PathVariable int id, @RequestBody TableRestaurant table) {
 		table.setTableRestaurantId(id);
-		tableRestaurantService.updateTable(table);
-		String successMessage = "Update table successfully.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		table.setReservations(null);
+		TableRestaurant check = tableRestaurantService.getTableByCode(table.getTableRestaurantCode());
+		if(check == null || check.getTableRestaurantId() == id) {
+			tableRestaurantService.updateTable(table);
+			String successMessage = "Update table Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate Table Code.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteTable(@PathVariable int id) {
 		tableRestaurantService.deleteTable(id);
-		String successMessage = "Delete table successfully.";
+		String successMessage = "Delete table Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}

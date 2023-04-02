@@ -64,9 +64,16 @@ public class UserController {
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User user) {
 		user.setUserId(id);
-		userService.updateUser(user);
-		String successMessage = "Update user Successfully.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		user.setReservations(null);
+		User check = getUserByUsername(user.getUserUsername());
+		if(check == null || check.getUserId() == id) {
+			userService.updateUser(user);
+			String successMessage = "Update user Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate Username.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 	

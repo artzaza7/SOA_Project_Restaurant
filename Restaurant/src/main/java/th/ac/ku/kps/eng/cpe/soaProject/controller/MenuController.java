@@ -26,9 +26,10 @@ import th.ac.ku.kps.eng.cpe.soaProject.model.MenuType;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuTypeService;
 
-@CrossOrigin("http://localhost:8081/")
+
 @RestController
 @RequestMapping("api/v1/menus")
+@CrossOrigin("http://localhost:8081/")
 public class MenuController {
 	
 	@Autowired
@@ -64,27 +65,41 @@ public class MenuController {
 		menu.setMenuDescription(body.get("menuDescription").asText());
 		menu.setMenuType(menuType);
 		menu.setMenuInCourses(null);
-		menuService.createOrUpdateMenu(menu);
-		String successMessage = "Create Menu Success.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		Menu check = menuService.getMenuByName(menu.getMenuName());
+		if(check == null) {
+			menuService.createOrUpdateMenu(menu);
+			String successMessage = "Create Menu Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate Menu Name.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 
-	@PutMapping("")
-	public ResponseEntity<String> updateMenu(@RequestBody Menu menu,@Parameter(name="id")int id) {
+	@PutMapping("/{id}")
+	public ResponseEntity<String> updateMenu(@RequestBody Menu menu,@PathVariable int id) {
 		MenuType menuType = new MenuType();
-		menuType = menuTypeService.getMenuTypeByID(id);
+		menuType = menuTypeService.getMenuTypeByMenuID(id);
+		menu.setMenuId(id);
 		menu.setMenuType(menuType);
-		menuService.createOrUpdateMenu(menu);
-		String successMessage = "Update Menu Success.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		menu.setMenuInCourses(null);
+		Menu check = menuService.getMenuByName(menu.getMenuName());
+		if(check == null || check.getMenuId() == id) {
+			menuService.createOrUpdateMenu(menu);
+			String successMessage = "Update Menu Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate Menu Name.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteMenu(@PathVariable int id) {
 		menuService.deleteMenu(id);
-		String successMessage = "Delete Menu Success.";
+		String successMessage = "Delete Menu Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}

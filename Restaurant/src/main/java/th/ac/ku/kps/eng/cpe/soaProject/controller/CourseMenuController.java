@@ -19,10 +19,9 @@ import th.ac.ku.kps.eng.cpe.soaProject.model.CourseMenu;
 import th.ac.ku.kps.eng.cpe.soaProject.model.Reservation;
 import th.ac.ku.kps.eng.cpe.soaProject.service.CourseMenuService;
 
-
-@CrossOrigin("http://localhost:8081/")
 @RestController
 @RequestMapping("api/v1/coursemenus")
+@CrossOrigin("http://localhost:8081/")
 public class CourseMenuController {
 	@Autowired
 	private CourseMenuService courseMenuService;
@@ -44,24 +43,38 @@ public class CourseMenuController {
 	
 	@PostMapping("")
 	public ResponseEntity<String> createNewReservation(@RequestBody CourseMenu courseMenu) {
-		courseMenuService.createNewCourseMenu(courseMenu);
-		String successMessage = "Create courseMenu successfully.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		CourseMenu check = courseMenuService.getCourseMenuByName(courseMenu.getCourseMenuName());
+		if(check == null) {
+			courseMenuService.createNewCourseMenu(courseMenu);
+			String successMessage = "Create courseMenu Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate CourseMenu Name.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateReservation(@PathVariable int id, @RequestBody CourseMenu courseMenu) {
 		courseMenu.setCourseMenuId(id);
-		courseMenuService.updateCourseMenu(courseMenu);
-		String successMessage = "Update courseMenu successfully.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		courseMenu.setMenuInCourses(null);
+		courseMenu.setReservations(null);
+		CourseMenu check = courseMenuService.getCourseMenuByName(courseMenu.getCourseMenuName());
+		if(check == null || check.getCourseMenuId() == id) {
+			courseMenuService.updateCourseMenu(courseMenu);
+			String successMessage = "Update courseMenu Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate CourseMenu Name.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteReservation(@PathVariable int id) {
 		courseMenuService.deleteCourseMenu(id);
-		String successMessage = "Delete courseMenu successfully.";
+		String successMessage = "Delete courseMenu Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
