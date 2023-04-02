@@ -7,13 +7,14 @@ import ListComponent from "@/components/ListComponent.vue";
 import HomeComponent from "@/Pages/HomeComponent.vue";
 import ReservationComponent from "@/Pages/ReservationComponent.vue";
 import LoginComponent from "@/components/LoginComponent.vue";
-import Home from "@/components/Home.vue";
+// import Home from "@/components/Home.vue";
+import CreateComponent from "@/components/CreateComponent.vue";
 
 const routes = [
   {
     path: "/",
     name: "HomePage",
-    component: Home,
+    component: HomeComponent,
   },
   {
     path: "/reservation",
