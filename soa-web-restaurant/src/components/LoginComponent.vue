@@ -56,6 +56,7 @@ export default {
                 let userLogin = await axios.get(`http://localhost:8080/api/v1/users/username/${this.user.username}`)
                 this.userLoginGetByUsername = userLogin.data;
                 this.$router.push({ name: "LoginSuccess", params: { id: this.userLoginGetByUsername.userId} });
+                window.location.reload();
             }
             // console.log(this.user.userUsername,this.user.userPassword)
             console.log(result.status, result.data.length);
