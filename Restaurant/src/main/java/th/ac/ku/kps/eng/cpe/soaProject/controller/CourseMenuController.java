@@ -41,6 +41,16 @@ public class CourseMenuController {
 		return (CourseMenu)courseMenuService.getCourseMenuByName(name);
 	}
 	
+	@GetMapping("/user/{id}")
+	public List<CourseMenu> getCourseMenusByUser(@PathVariable int id) {
+		return (List<CourseMenu>) courseMenuService.getCourseMenuByUser(id);
+	}
+	
+	@GetMapping("/reservation/{id}")
+	public List<CourseMenu> getCourseMenusByReserve(@PathVariable int id) {
+		return (List<CourseMenu>) courseMenuService.getCourseMenuByReserve(id);
+	}
+	
 	@PostMapping("")
 	public ResponseEntity<String> createNewReservation(@RequestBody CourseMenu courseMenu) {
 		CourseMenu check = courseMenuService.getCourseMenuByName(courseMenu.getCourseMenuName());

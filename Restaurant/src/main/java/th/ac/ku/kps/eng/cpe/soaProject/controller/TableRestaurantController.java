@@ -42,6 +42,12 @@ public class TableRestaurantController {
 		return (TableRestaurant)tableRestaurantService.getTableByCode(code);
 	}
 	
+	@GetMapping("/reservation/{id}")
+	public List<TableRestaurant> getTablesByReserve(@PathVariable int id) {
+		return (List<TableRestaurant>)tableRestaurantService.getTablesByReserve(id);
+	}
+	
+	
 	@GetMapping("/user/{id}")
 	public List<TableRestaurant> getTablesByUser(@PathVariable int id) {
 		return (List<TableRestaurant>)tableRestaurantService.getTablesByUser(id);

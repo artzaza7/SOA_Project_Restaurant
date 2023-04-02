@@ -16,4 +16,7 @@ public interface TableRestaurantRepository extends CrudRepository<TableRestauran
 	@Query("from TableRestaurant t inner join t.reservations r inner join r.user u  where u.userId = :id")
 	public List<TableRestaurant> findByUser(@Param("id")int id);
 	
+	@Query("from TableRestaurant t inner join t.reservations r where r.reservationId = :id")
+	public List<TableRestaurant> findByReserve(@Param("id")int id);
+	
 }

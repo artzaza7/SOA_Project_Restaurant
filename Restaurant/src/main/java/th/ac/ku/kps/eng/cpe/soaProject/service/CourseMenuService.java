@@ -23,6 +23,14 @@ public class CourseMenuService {
 		return courseMenuRepository.findById(id).get();
 	}
 	
+	public List<CourseMenu> getCourseMenuByUser(int id){
+		return courseMenuRepository.findByUser(id);
+	}
+	
+	public List<CourseMenu> getCourseMenuByReserve(int id){
+		return courseMenuRepository.findByReservation(id);
+	}
+	
 	public CourseMenu getCourseMenuByName(String name){
 		return courseMenuRepository.findByName(name);
 	}

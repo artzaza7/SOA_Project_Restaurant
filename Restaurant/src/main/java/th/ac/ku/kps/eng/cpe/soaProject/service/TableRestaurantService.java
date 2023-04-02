@@ -24,6 +24,10 @@ public class TableRestaurantService {
 		return (List<TableRestaurant>)tableRestaurantRepository.findByUser(id);
 	}
 	
+	public List<TableRestaurant> getTablesByReserve(int id){
+		return (List<TableRestaurant>)tableRestaurantRepository.findByReserve(id);
+	}
+	
 	public TableRestaurant getTableByID(int id){
 		return tableRestaurantRepository.findById(id).get();
 	}
