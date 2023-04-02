@@ -1,6 +1,4 @@
-<script setup>
 
-</script>
 
 <template>
   <div class="row justify-content-between">
@@ -127,17 +125,19 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
       info: null,
       table: null,
-      course: null,
+      course: this.course,
       menucourse: null,
       menu: null,
       menutype: null
     };
   },
+  
   mounted() {
     axios.get("http://localhost:8081/api/v1/users").then((response) => {
       this.info = response.data;
@@ -150,6 +150,7 @@ export default {
       axios.get("http://localhost:8081/api/v1/coursemenus").then((response) => {
         this.course = response.data;
         console.log(response.data);
+        
       }),
       axios
         .get("http://localhost:8081/api/v1/menus/course/{name}")
