@@ -24,6 +24,9 @@ import AdminAddTable from "@/components/AdminAddTable.vue";
 import userReservation from "@/components/UserReservation.vue";
 import userHistoryReservation from '@/components/UserHistoryReservation.vue';
 import userHistoryReservationDetail from '@/components/userHistoryReservationDetail.vue';
+//AdminCRUD
+import UpdateReservation from "@/components/AdminCRUD/UpdateReservation.vue";
+
 const routes = [
   {
     path: "/",
@@ -122,6 +125,12 @@ const routes = [
     component: userHistoryReservationDetail,
     params: true,
   }
+  //AdminCRUD
+  {
+    path: "/reservation/:id",
+    name: "UpdateReservationPage",
+    component: UpdateReservation,
+  },
 ];
 
 const router = createRouter({
