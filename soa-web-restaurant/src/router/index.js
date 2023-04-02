@@ -9,7 +9,9 @@ import ReservationComponent from "@/Pages/ReservationComponent.vue";
 import LoginComponent from "@/components/LoginComponent.vue";
 // import Home from "@/components/Home.vue";
 import CreateComponent from "@/components/CreateComponent.vue";
-
+import UnknowSeeTableVue from "@/components/UnknowSeeTable.vue";
+import UnknowSeeMenuVue from "@/components/UnknowSeeMenu.vue";
+import UnknowSeeCourseVue from "@/components/UnknowSeeCourse.vue";
 
 //Admin
 import AdminReservation from "@/components/AdminReservation.vue";
@@ -17,6 +19,7 @@ import AdminAllUsers from "@/components/AdminAllUsers.vue";
 import AdminAddCourse from "@/components/AdminAddCourse.vue";
 import AdminAddMenu from "@/components/AdminAddMenu.vue";
 import AdminAddTable from "@/components/AdminAddTable.vue";
+import HomePage from "@/Pages/HomePage.vue";
 
 //User
 import userReservation from "@/components/UserReservation.vue";
@@ -29,9 +32,9 @@ const routes = [
     component: HomePage,
   },
   {
-    path: "/reservation",
-    name: "reservation",
-    component: ReservationComponent,
+    path: "/homepage",
+    name: "homepage",
+    component: HomePage,
   },
 
   {
@@ -59,6 +62,23 @@ const routes = [
     name: "view",
     component: ListComponent,
   },
+  {
+    path: "/Table",
+    name: "UnknowSeeTablePage",
+    component: UnknowSeeTableVue,
+  },
+  {
+    path: "/Course",
+    name: "UnknowSeeCoursePage",
+    component: UnknowSeeCourseVue,
+  },
+  
+  {
+    path: "/Menu",
+    name: "UnknowSeeMenuPage",
+    component: UnknowSeeMenuVue,
+  },
+  
   //Admin
   {
     path: "/allreservation",
