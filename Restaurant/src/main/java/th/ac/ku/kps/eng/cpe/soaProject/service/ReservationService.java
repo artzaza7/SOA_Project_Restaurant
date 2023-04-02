@@ -22,6 +22,10 @@ public class ReservationService {
 		return reservationRepository.findById(id).get();
 	}
 	
+	public List<Reservation> getReservationByUserID(int id){
+		return reservationRepository.findByUserID(id);
+	}
+	
 	public void createNewReservation(Reservation reservation) {
 		reservationRepository.save(reservation);
 	}

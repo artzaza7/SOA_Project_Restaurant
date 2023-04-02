@@ -52,6 +52,12 @@ public class ReservationController {
 	public Reservation getReservationByID(@PathVariable int id) {
 		return (Reservation)reservationService.getReservationByID(id);
 	}
+	
+	@GetMapping("/user/{id}")
+	public List<Reservation> getReservationByUserID(@PathVariable int id) {
+		return (List<Reservation>)reservationService.getReservationByUserID(id);
+	}
+	
 	// Reservation reservation
 	@PostMapping("")
 	public ResponseEntity<String> createNewReservation(@RequestBody JsonNode body) {
