@@ -7,8 +7,8 @@
             <div>
                 <label for="status">Status:</label>
                 <select name="status" id="status" v-model="reservation.reservationStatus">
-                    <option v-bind:value="BOOKING">BOOKING</option>
-                    <option v-bind:value="CANCEL">CANCEL</option>
+                    <option v-bind:value="BOOKING" v-bind:key="BOOKING">BOOKING</option>
+                    <option v-bind:value="CANCEL" v-bind:key="CANCEL">CANCEL</option>
                 </select>
             </div>
             <button @click.prevent="updateReservation">Update</button>
@@ -39,9 +39,10 @@ export default {
             console.log(response.data);
         },
         async updateReservation() {
+            console.log("this.reservation ==== " + this.reservation)
             await axios.put(`http://localhost:8080/api/v1/reservations/${this.$route.params.id}`, this.reservation)
             this.$router.push('/allreservation')
-            // console.log("this.reservation ==== " + this.reservation.reservationStatus)
+
             // Show a success message or redirect to a different page
         }
     },
