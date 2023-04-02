@@ -43,17 +43,19 @@ export default {
             user: {
                 username: "",
                 password: "",
-            }
+            },
+            userLoginGetByUsername: null
         }
     },
     methods: {
         async login() {
             let result = await axios.get(`http://localhost:8080/api/v1/users/?username=${this.user.username}&password=${this.user.password}`)
-
             if (result.status == 200) {
                 alert("Login success!!!")
                 localStorage.setItem('user-info', JSON.stringify(result.data));
-                this.$router.push({ name: "HomePage" });
+                let userLogin = await axios.get(`http://localhost:8080/api/v1/users/username/${this.user.username}`)
+                this.userLoginGetByUsername = userLogin.data;
+                this.$router.push({ name: "LoginSuccess", params: { id: this.userLoginGetByUsername.userId} });
             }
             // console.log(this.user.userUsername,this.user.userPassword)
             console.log(result.status, result.data.length);

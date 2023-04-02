@@ -10,6 +10,8 @@ import LoginComponent from "@/components/LoginComponent.vue";
 // import Home from "@/components/Home.vue";
 import CreateComponent from "@/components/CreateComponent.vue";
 
+//AfterLogin
+import UserAfterLoginComponent from "@/Pages/UserAfterLoginComponent.vue";
 const routes = [
   {
     path: "/",
@@ -46,6 +48,14 @@ const routes = [
     path: "/view",
     name: "view",
     component: ListComponent,
+  },
+
+  // AfterLogin
+  {
+    path: "/loginSuccess/:id",
+    name: "LoginSuccess", 
+    component : UserAfterLoginComponent,
+    params: true
   },
 ];
 
