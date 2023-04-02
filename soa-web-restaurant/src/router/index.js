@@ -12,6 +12,13 @@ import CreateComponent from "@/components/CreateComponent.vue";
 
 //AfterLogin
 import UserAfterLoginComponent from "@/Pages/UserAfterLoginComponent.vue";
+
+import AdminReservation from "@/components/AdminReservation.vue";
+import AdminAllUsers from "@/components/AdminAllUsers.vue";
+import AdminAddCourse from "@/components/AdminAddCourse.vue";
+import AdminAddMenu from "@/components/AdminAddMenu.vue";
+import AdminAddTable from "@/components/AdminAddTable.vue";
+
 const routes = [
   {
     path: "/",
@@ -53,9 +60,36 @@ const routes = [
   // AfterLogin
   {
     path: "/loginSuccess/:id",
-    name: "LoginSuccess", 
-    component : UserAfterLoginComponent,
-    params: true
+    name: "LoginSuccess",
+    component: UserAfterLoginComponent,
+    params: true,
+  },
+
+  //Admin
+  {
+    path: "/allreservation",
+    name: "AdminReservationPage",
+    component: AdminReservation,
+  },
+  {
+    path: "/allusers",
+    name: "AdminAllUsersPage",
+    component: AdminAllUsers,
+  },
+  {
+    path: "/addcourse",
+    name: "AdminAddCoursePage",
+    component: AdminAddCourse,
+  },
+  {
+    path: "/addmenu",
+    name: "AdminAddMenuPage",
+    component: AdminAddMenu,
+  },
+  {
+    path: "/addtable",
+    name: "AdminAddTablePage",
+    component: AdminAddTable,
   },
 ];
 
