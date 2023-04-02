@@ -6,11 +6,11 @@
             <!-- <input type="text" v-model="reservation.reservationStatus"> -->
             <div>
                 <label for="status">Status:</label>
-                <select name="status" id="status" v-model="reservation.reservationStatus">
-                    <option v-bind:value="BOOKING" v-bind:key="BOOKING">BOOKING</option>
-                    <option v-bind:value="CANCEL" v-bind:key="CANCEL">CANCEL</option>
+                <select name="status" id="status" v-model="selected">
+                    <option v-for="s in status" :key="s.id" :value="s.name">{{ s.name }}</option>
                 </select>
             </div>
+            <p>You selected: {{ selected }}</p>
             <button @click.prevent="updateReservation">Update</button>
         </form>
     </div>
@@ -22,33 +22,31 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            reservation: {
-                reservationDate: '',
-                reservationStatus: '',
-                reservationTimeEnd: '',
-                reservationTimeStart: ''
-            },
-            reservationId: null,
+            reservation: null,
+            selected: '',
+            status: [
+                { id: 1, name: 'BOOKING' },
+                { id: 2, name: 'CANCEL' },
+            ]
         }
+    },
+    created() {
+        this.getReservation();
     },
     methods: {
         async getReservation() {
             const response = await axios.get(`http://localhost:8080/api/v1/reservations/${this.$route.params.id}`)
-            // console.log("Id ==== " + this.$route.params.id)
             this.reservation = response.data;
-            console.log(response.data);
+            // console.log("this GET ======= " + this.reservation);
         },
         async updateReservation() {
-            console.log("this.reservation ==== " + this.reservation)
+            console.log("this.reservation PUT ==== " + JSON.stringify(this.reservation));
+            this.reservation.reservationStatus = this.selected;
+            // console.log("this.reservation.reservationStatus ==== " + JSON.stringify(this.reservation.reservationStatus));
+            console.log("this.reservation.reservationStatus ==== " + JSON.stringify(this.reservation));
             await axios.put(`http://localhost:8080/api/v1/reservations/${this.$route.params.id}`, this.reservation)
             this.$router.push('/allreservation')
-
-            // Show a success message or redirect to a different page
         }
     },
-    created() {
-        this.reservationId = this.$route.params.reservationId
-        this.getReservation()
-    }
 }
 </script>
