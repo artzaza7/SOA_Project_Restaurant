@@ -112,15 +112,8 @@ public class ReservationController {
 
 		// Convert the LocalTime to a java.sql.Time object
 		java.sql.Time sqlTimeEnd = java.sql.Time.valueOf(localTimeEnd);
-		// ============== From body ==============
-		CourseMenu courseMenu = courseMenuService.getCourseMenuByID(body.get("courseMenu").asInt()); 
-		User user = userService.getUserByID(body.get("user").asInt());
-		TableRestaurant tableRestaurant = tableRestaurantService.getTableByID(body.get("tableRestaurant").asInt());
 		// ========================================
 		updateReservation.setReservationId(id);
-		updateReservation.setUser(user);
-		updateReservation.setCourseMenu(courseMenu);
-		updateReservation.setTableRestaurant(tableRestaurant);
 		updateReservation.setReservationStatus(body.get("reservationStatus").asText());
 		updateReservation.setReservationTimeStart(sqlTime);
 		updateReservation.setReservationTimeEnd(sqlTimeEnd);
