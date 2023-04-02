@@ -40,6 +40,9 @@
       <router-link to="/" class="navbar-brand float-left"></router-link>
       <ul class="nav nav-bar flex-row float-right">
         <li class="nav-item">
+          <router-link to="/" class="nav-link m-1 bg-light btn">{{user.userId}}</router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/" class="nav-link m-1 bg-light btn">Home</router-link>
         </li>
         <li class="nav-item">
@@ -65,7 +68,8 @@
 export default {
   data() {
     return {
-      localStorageValue: localStorage.getItem('user-info')
+      localStorageValue: localStorage.getItem('user-info'),
+      user : JSON.parse(localStorage.getItem('user-info'))
     }
   },
   methods :{
