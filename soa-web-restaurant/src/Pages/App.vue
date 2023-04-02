@@ -77,11 +77,18 @@
             <router-link to="/" class="nav-link m-1 bg-light btn">{{ user.userType
             }}</router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/" class="nav-link m-1 bg-light btn">Home</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/reservation" class="nav-link m-1 bg-light btn">Reservation</router-link>
+          </li> -->
+
+          <li class="nav-item">
+            <router-link to="/userReservation" class="nav-link m-1 bg-light btn">Reservation</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/userHistoryReservation" class="nav-link m-1 bg-light btn">History Reservation</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/view" class="nav-link m-1 bg-light btn">view</router-link>

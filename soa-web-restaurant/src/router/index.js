@@ -18,6 +18,10 @@ import AdminAddCourse from "@/components/AdminAddCourse.vue";
 import AdminAddMenu from "@/components/AdminAddMenu.vue";
 import AdminAddTable from "@/components/AdminAddTable.vue";
 
+//User
+import userReservation from "@/components/UserReservation.vue";
+import userHistoryReservation from '@/components/UserHistoryReservation.vue';
+import userHistoryReservationDetail from '@/components/userHistoryReservationDetail.vue';
 const routes = [
   {
     path: "/",
@@ -81,6 +85,24 @@ const routes = [
     name: "AdminAddTablePage",
     component: AdminAddTable,
   },
+
+  //User
+  {
+    path: "/userReservation",
+    name: "userReservation",
+    component: userReservation,
+  },
+  {
+    path: "/userHistoryReservation",
+    name: "userHistoryReservation",
+    component : userHistoryReservation
+  },
+  {
+    path: "/userHistoryReservationDetail/:id",
+    name: "userHistoryReservationDetail",
+    component: userHistoryReservationDetail,
+    params: true,
+  }
 ];
 
 const router = createRouter({
