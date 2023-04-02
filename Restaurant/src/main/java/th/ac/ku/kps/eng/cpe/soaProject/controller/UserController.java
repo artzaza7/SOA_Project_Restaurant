@@ -23,9 +23,10 @@ import io.swagger.v3.oas.annotations.Parameter;
 import th.ac.ku.kps.eng.cpe.soaProject.model.User;
 import th.ac.ku.kps.eng.cpe.soaProject.service.UserService;
 
-@CrossOrigin("http://localhost:8081/")
+
 @RestController
 @RequestMapping("api/v1/users")
+@CrossOrigin("http://localhost:8081/")
 public class UserController {
 	
 	@Autowired
@@ -41,11 +42,22 @@ public class UserController {
 		return (User)userService.getUserByID(id);
 	}
 	
+	@GetMapping("/username/{username}")
+	public User getUserByUsername(@PathVariable String username) {
+		return (User)userService.getUserByName(username);
+	}
+	
 	@PostMapping("")
 	public ResponseEntity<String> createUser(@RequestBody User user) {
-		userService.createNewUser(user);
-		String successMessage = "Create Menu Success.";
-		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+		User check = userService.getUserByName(user.getUserUsername());
+		if(check == null) {
+			userService.createNewUser(user);
+			String successMessage = "Create Menu Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate Username.";
+		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.NOT_FOUND);
 		return response;
 	}
 	
@@ -53,7 +65,7 @@ public class UserController {
 	public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User user) {
 		user.setUserId(id);
 		userService.updateUser(user);
-		String successMessage = "Update user successfully.";
+		String successMessage = "Update user Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
@@ -61,7 +73,7 @@ public class UserController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteUser(@PathVariable int id) {
 		userService.deleteUser(id);
-		String successMessage = "Delete Menu Success.";
+		String successMessage = "Delete Menu Successfully.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
