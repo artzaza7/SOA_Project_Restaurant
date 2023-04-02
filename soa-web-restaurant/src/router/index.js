@@ -10,9 +10,8 @@ import LoginComponent from "@/components/LoginComponent.vue";
 // import Home from "@/components/Home.vue";
 import CreateComponent from "@/components/CreateComponent.vue";
 
-//AfterLogin
-import UserAfterLoginComponent from "@/Pages/UserAfterLoginComponent.vue";
 
+//Admin
 import AdminReservation from "@/components/AdminReservation.vue";
 import AdminAllUsers from "@/components/AdminAllUsers.vue";
 import AdminAddCourse from "@/components/AdminAddCourse.vue";
@@ -56,15 +55,6 @@ const routes = [
     name: "view",
     component: ListComponent,
   },
-
-  // AfterLogin
-  {
-    path: "/loginSuccess/:id",
-    name: "LoginSuccess",
-    component: UserAfterLoginComponent,
-    params: true,
-  },
-
   //Admin
   {
     path: "/allreservation",

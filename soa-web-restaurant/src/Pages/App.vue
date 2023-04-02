@@ -101,6 +101,8 @@
 </template>
 
 <script>
+import router from '@/router';
+
 
 export default {
   data() {
@@ -112,8 +114,9 @@ export default {
   methods: {
     logout() {
       localStorage.clear();
-      this.$router.push({ name: "LoginPage" })
-      window.location.reload();
+      // this.$router.push({ name: "LoginPage" })
+      const resolvedRoute = router.resolve({ name: "LoginPage" })
+      window.location.href = resolvedRoute.href;
     },
   }
 }

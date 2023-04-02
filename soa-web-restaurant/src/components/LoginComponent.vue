@@ -44,7 +44,6 @@ export default {
                 username: "",
                 password: "",
             },
-            userLoginGetByUsername: null
         }
     },
     methods: {
@@ -53,9 +52,6 @@ export default {
             if (result.status == 200) {
                 alert("Login success!!!")
                 localStorage.setItem('user-info', JSON.stringify(result.data));
-                let userLogin = await axios.get(`http://localhost:8080/api/v1/users/username/${this.user.username}`)
-                this.userLoginGetByUsername = userLogin.data;
-                this.$router.push({ name: "LoginSuccess", params: { id: this.userLoginGetByUsername.userId} });
                 window.location.reload();
             }
             // console.log(this.user.userUsername,this.user.userPassword)
