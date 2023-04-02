@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ import th.ac.ku.kps.eng.cpe.soaProject.model.MenuType;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuTypeService;
 
-
+@CrossOrigin("http://localhost:8081/")
 @RestController
 @RequestMapping("api/v1/menus")
 public class MenuController {
