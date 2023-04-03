@@ -1,5 +1,7 @@
 package th.ac.ku.kps.eng.cpe.soaProject.service;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,10 @@ public class ReservationService {
 	
 	public List<Reservation> getReservations(){
 		return (List<Reservation>)reservationRepository.findAll();
+	}
+	
+	public Reservation getReservationsByReserve(int id, Date date, Time start, Time end){
+		return reservationRepository.findByReservation(id, date, start, end);
 	}
 	
 	public Reservation getReservationByID(int id){

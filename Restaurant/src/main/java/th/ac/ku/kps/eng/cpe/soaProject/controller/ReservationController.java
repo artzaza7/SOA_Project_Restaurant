@@ -92,8 +92,14 @@ public class ReservationController {
 		createReservation.setReservationTimeStart(sqlTime);
 		createReservation.setReservationTimeEnd(sqlTimeEnd);
 		createReservation.setReservationDate(sqlDate);
-		reservationService.createNewReservation(createReservation);
-		String successMessage = "Create reservation Successfully.";
+		Reservation check = reservationService.getReservationsByReserve(body.get("tableRestaurant").asInt(), sqlDate, sqlTime, sqlTimeEnd);
+		if(check == null) {
+			reservationService.createNewReservation(createReservation);
+			String successMessage = "Create reservation Successfully.";
+			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
+			return response;
+		}
+		String successMessage = "Duplicate Reservation.";
 		ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 		return response;
 	}
