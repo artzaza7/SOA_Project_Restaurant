@@ -4,7 +4,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import SingUp from "@/components/SignUp.vue";
 import EditComponent from "@/components/EditComponent.vue";
 import ListComponent from "@/components/ListComponent.vue";
-import HomeComponent from "@/Pages/HomeComponent.vue";
+import HomePage from "@/Pages/HomePage.vue";
 import ReservationComponent from "@/Pages/ReservationComponent.vue";
 import LoginComponent from "@/components/LoginComponent.vue";
 // import Home from "@/components/Home.vue";
@@ -26,7 +26,7 @@ const routes = [
   {
     path: "/",
     name: "HomePage",
-    component: HomeComponent,
+    component: HomePage,
   },
   {
     path: "/reservation",

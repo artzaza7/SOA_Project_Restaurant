@@ -23,7 +23,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import th.ac.ku.kps.eng.cpe.soaProject.model.User;
 import th.ac.ku.kps.eng.cpe.soaProject.service.UserService;
 
-
 @RestController
 @RequestMapping("api/v1/users")
 @CrossOrigin("http://localhost:8081/")
