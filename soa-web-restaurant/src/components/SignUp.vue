@@ -57,7 +57,8 @@ export default {
                 userPassword: "",
                 userFirstname: "",
                 userLastname: "",
-                userPhonenumber: ""
+                userPhonenumber: "",
+                userType: "USER"
             }
         }
     },
@@ -73,7 +74,7 @@ export default {
                             this.userLastname = '',
                             this.userPhonenumber = '',
                             alert("Sign up success!");
-                        localStorage.setItem("user-info", JSON.stringify(data));
+                        // localStorage.setItem("user-info", JSON.stringify(data));
                         this.$router.push({ name: "HomePage" })
                         console.log(data);
                     }

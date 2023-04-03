@@ -87,8 +87,15 @@ export default {
                         this.reservation.reservationDate = '',
                         this.reservation.reservationTimeStart = '',
                         this.reservation.reservationTimeEnd = '',
-                        alert("Booking success!");
+                        // alert("Booking success!");
                         console.log(data);
+
+                        if (data === "Duplicate Reservation."){
+                            alert("Booking fail!");
+                        }
+                        else{
+                            alert("Booking success!");
+                        }
                     }
                 );
         }
