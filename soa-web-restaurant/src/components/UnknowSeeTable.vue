@@ -36,7 +36,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:8081/api/v1/tables").then((response) => {
+    axios.get("http://localhost:8080/api/v1/tables").then((response) => {
         this.table = response.data;
         console.log(response.data);
       });

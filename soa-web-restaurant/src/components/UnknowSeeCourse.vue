@@ -33,7 +33,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:8081/api/v1/coursemenus").then((response) => {
+    axios.get("http://localhost:8080/api/v1/coursemenus").then((response) => {
       this.course = response.data;
       console.log(response.data);
     });

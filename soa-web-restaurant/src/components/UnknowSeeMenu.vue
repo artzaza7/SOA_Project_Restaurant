@@ -32,7 +32,7 @@ export default {
   },
   mounted() {
     axios
-        .get("http://localhost:8081/api/v1/menus")
+        .get("http://localhost:8080/api/v1/menus")
         .then((response) => {
           this.menu = response.data;
           console.log(response.data);

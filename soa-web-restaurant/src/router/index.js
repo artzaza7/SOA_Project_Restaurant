@@ -5,7 +5,7 @@ import SingUp from "@/components/SignUp.vue";
 import EditComponent from "@/components/EditComponent.vue";
 import ListComponent from "@/components/ListComponent.vue";
 import HomePage from "@/Pages/HomePage.vue";
-import ReservationComponent from "@/Pages/ReservationComponent.vue";
+// import ReservationComponent from "@/Pages/ReservationComponent.vue";
 import LoginComponent from "@/components/LoginComponent.vue";
 // import Home from "@/components/Home.vue";
 import CreateComponent from "@/components/CreateComponent.vue";
@@ -19,7 +19,6 @@ import AdminAllUsers from "@/components/AdminAllUsers.vue";
 import AdminAddCourse from "@/components/AdminAddCourse.vue";
 import AdminAddMenu from "@/components/AdminAddMenu.vue";
 import AdminAddTable from "@/components/AdminAddTable.vue";
-import HomePage from "@/Pages/HomePage.vue";
 
 //User
 import userReservation from "@/components/UserReservation.vue";
