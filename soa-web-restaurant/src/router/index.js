@@ -124,7 +124,7 @@ const routes = [
     name: "userHistoryReservationDetail",
     component: userHistoryReservationDetail,
     params: true,
-  }
+  },
   //AdminCRUD
   {
     path: "/reservation/:id",
