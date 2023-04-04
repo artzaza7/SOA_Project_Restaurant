@@ -8,6 +8,9 @@
           <router-link to="/" class="nav-link m-1 bg-light btn">{{localStorageValue}}</router-link>
         </li> -->
         <li class="nav-item">
+          <router-link to="/homepage" class="nav-link m-1 bg-light btn">Home</router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/Table" class="nav-link m-1 bg-light btn">Table</router-link>
         </li>
         <li class="nav-item">
@@ -15,10 +18,6 @@
         </li>
         <li class="nav-item">
           <router-link to="/Menu" class="nav-link m-1 bg-light btn">Menu</router-link>
-        </li>
-        
-        <li class="nav-item">
-          <router-link to="/homepage" class="nav-link m-1 bg-light btn">Home</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/view" class="nav-link m-1 bg-light btn">view</router-link>
