@@ -32,6 +32,7 @@
 <script>
 
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
 
 export default {
     name: "LoginPage",
@@ -48,14 +49,26 @@ export default {
     },
     methods: {
         async login() {
-            let result = await axios.get(`http://localhost:8080/api/v1/users/?username=${this.user.username}&password=${this.user.password}`)
-            if (result.status == 200) {
-                alert("Login success!!!")
-                localStorage.setItem('user-info', JSON.stringify(result.data));
-                window.location.reload();
+            let userFromDatabase = await axios.get(`http://localhost:8080/api/v1/users/username/${this.user.username}`);
+            let passwordFromDatabase = userFromDatabase.data.userPassword;
+            // console.log(passwordFromDatabase);
+            const password = this.user.password;
+            // console.log(password);
+            const isMatch = bcrypt.compareSync(password, passwordFromDatabase);
+
+            if (isMatch) {
+                let result = await axios.get(`http://localhost:8080/api/v1/users/?username=${this.user.username}&password=${passwordFromDatabase}`)
+                if (result.status == 200) {
+                    alert("Login Success!!!")
+                    localStorage.setItem('user-info', JSON.stringify(result.data));
+                    window.location.reload();
+                }
+                // console.log(this.user.userUsername,this.user.userPassword)
+                console.log(result.status, result.data.length);
             }
-            // console.log(this.user.userUsername,this.user.userPassword)
-            console.log(result.status, result.data.length);
+            else {
+                alert("Login Fail!!!")
+            }
         }
     },
     mounted() {

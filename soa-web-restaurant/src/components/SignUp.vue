@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="text">Password</label>
-                        <input type="password" class="form-control form-control-lg" v-model="user.userPassword" required>
+                        <input type="password" class="form-control form-control-lg" v-model="inputPassword" required>
                     </div>
                     <div class="form-group row justify-content-center m-3">
                         <button type="submit" class="btn btn-dark btn-lg btn-block">Sign up</button>
@@ -44,6 +44,7 @@
 <script>
 
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
 
 export default {
     name: "SignUpPage",
@@ -59,11 +60,15 @@ export default {
                 userLastname: "",
                 userPhonenumber: "",
                 userType: "USER"
-            }
+            },
+            inputPassword: null,
         }
     },
     methods: {
         async saveData() {
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(this.inputPassword, saltRounds);
+            this.user.userPassword = hashedPassword;
             await axios.post("http://localhost:8080/api/v1/users/", this.user)
                 .then(
                     ({ data }) => {
