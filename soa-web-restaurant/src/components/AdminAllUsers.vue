@@ -1,9 +1,9 @@
 <template>
-    <div class="row jsutify-content-center">
+    <div class="row justify-content-center ">
         <div class="col-md-6">
             <!-- Display List -->
-            <h1 class="row justify-content-center">All Users</h1>
-            <table class="table table-striped">
+            <h1 class="row justify-content-center mb-5">All Users</h1>
+            <table class="table table-hover table-fixed">
                 <thead>
                     <th>First Name</th>
                     <th>Last Name</th>
