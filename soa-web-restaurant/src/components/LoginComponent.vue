@@ -8,11 +8,11 @@
                     <h3 class="row justify-content-center">Sign In</h3>
                     <div class="form-group">
                         <label for="text">Username</label>
-                        <input type="text" class="form-control form-control-lg" v-model="user.username" required>
+                        <input type="text" class="form-control form-control-lg" v-model="user.username" required placeholder="username">
                     </div>
                     <div class="form-group">
                         <label for="text">Password</label>
-                        <input type="password" class="form-control form-control-lg" v-model="user.password" required>
+                        <input type="password" class="form-control form-control-lg" v-model="user.password" required placeholder="password">
                     </div>
                     <div class="form-group row justify-content-center m-3">
                         <button type="submit" class="btn btn-dark btn-lg btn-block">Login</button>
@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         async login() {
-            let userFromDatabase = await axios.get(`http://localhost:8080/api/v1/users/username/${this.user.username}`);
+            let userFromDatabase = await axios.get(`http://localhost:8081/api/v1/users/username/${this.user.username}`);
             let passwordFromDatabase = userFromDatabase.data.userPassword;
             // console.log(passwordFromDatabase);
             const password = this.user.password;
@@ -57,7 +57,7 @@ export default {
             const isMatch = bcrypt.compareSync(password, passwordFromDatabase);
 
             if (isMatch) {
-                let result = await axios.get(`http://localhost:8080/api/v1/users/?username=${this.user.username}&password=${passwordFromDatabase}`)
+                let result = await axios.get(`http://localhost:8081/api/v1/users/?username=${this.user.username}&password=${passwordFromDatabase}`)
                 if (result.status == 200) {
                     alert("Login Success!!!")
                     localStorage.setItem('user-info', JSON.stringify(result.data));
@@ -83,6 +83,7 @@ export default {
 <style scoped>
 * {
     box-sizing: border-box;
+    
 }
 
 body {
@@ -126,6 +127,7 @@ html,
 .vertical-center .form-control:focus {
     border-color: #2554FF;
     box-shadow: none;
+    
 }
 
 .vertical-center h3 {
@@ -142,7 +144,7 @@ label {
 .forgot-password,
 .forgot-password a {
     text-align: right;
-    font-size: 13px;
+    font-size: 17px;
     padding-top: 10px;
     color: #7a7a7a;
     margin: 0;

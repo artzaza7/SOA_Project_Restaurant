@@ -1,35 +1,35 @@
 <template>
   <div v-if="!localStorageValue">
     <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
+    <nav class="navbar navbar-dark bg-dark justify-content-between flex-nowrap flex-row">
       <router-link to="/" class="navbar-brand float-left"></router-link>
-      <ul class="nav nav-bar flex-row float-right">
+      <ul class="nav nav-bar flex-row float-right text-dark">
         <!-- <li class="nav-item">
           <router-link to="/" class="nav-link m-1 bg-light btn">{{localStorageValue}}</router-link>
         </li> -->
-        <li class="nav-item">
-          <router-link to="/homepage" class="nav-link m-1 bg-light btn">Home</router-link>
+        <li class="nav-item text-dark">
+          <router-link to="/homepage" class="nav-link m-1 bg-light btn text-dark">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/Table" class="nav-link m-1 bg-light btn">Table</router-link>
+          <router-link to="/Table" class="nav-link m-1 bg-light btn text-dark">Table</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/Course" class="nav-link m-1 bg-light btn">Course</router-link>
+          <router-link to="/Course" class="nav-link m-1 bg-light btn text-dark">Course</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/Menu" class="nav-link m-1 bg-light btn">Menu</router-link>
+          <router-link to="/Menu" class="nav-link m-1 bg-light btn text-dark">Menu</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/view" class="nav-link m-1 bg-light btn">view</router-link>
+          <router-link to="/view" class="nav-link m-1 bg-light btn text-dark">view</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/login" class="nav-link m-1 bg-light btn">Login</router-link>
+          <router-link to="/login" class="nav-link m-1 bg-light btn text-dark">Login</router-link>
         </li>
         <!-- <li class="nav-item">
           <router-link to="/sign-up" class="nav-link m-1 bg-light">Sign Up</router-link>
         </li> -->
         <li class="nav-item">
-          <router-link to="/sign-up" class="nav-link m-1 bg-light btn">Sign up</router-link>
+          <router-link to="/sign-up" class="nav-link m-1 bg-light btn text-dark">Sign up</router-link>
         </li>
 
       </ul>
