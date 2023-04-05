@@ -22,10 +22,13 @@ import AdminAddTable from "@/components/AdminAddTable.vue";
 
 //User
 import userReservation from "@/components/UserReservation.vue";
-import userHistoryReservation from '@/components/UserHistoryReservation.vue';
-import userHistoryReservationDetail from '@/components/userHistoryReservationDetail.vue';
+import userHistoryReservation from "@/components/UserHistoryReservation.vue";
+import userHistoryReservationDetail from "@/components/userHistoryReservationDetail.vue";
 //AdminCRUD
 import UpdateReservation from "@/components/AdminCRUD/UpdateReservation.vue";
+import UpdateTablePage from "@/components/AdminCRUD/UpdateTablePage.vue";
+import UpdateMenuPage from "@/components/AdminCRUD/UpdateMenuPage.vue";
+import UpdateCoursePage from "@/components/AdminCRUD/UpdateCoursePage.vue";
 
 const routes = [
   {
@@ -74,13 +77,13 @@ const routes = [
     name: "UnknowSeeCoursePage",
     component: UnknowSeeCourseVue,
   },
-  
+
   {
     path: "/Menu",
     name: "UnknowSeeMenuPage",
     component: UnknowSeeMenuVue,
   },
-  
+
   //Admin
   {
     path: "/allreservation",
@@ -117,7 +120,7 @@ const routes = [
   {
     path: "/userHistoryReservation",
     name: "userHistoryReservation",
-    component : userHistoryReservation
+    component: userHistoryReservation,
   },
   {
     path: "/userHistoryReservationDetail/:id",
@@ -127,9 +130,24 @@ const routes = [
   },
   //AdminCRUD
   {
-    path: "/reservation/:id",
+    path: "/update/reservation/:id",
     name: "UpdateReservationPage",
     component: UpdateReservation,
+  },
+  {
+    path: "/update/table/:id",
+    name: "UpdateTablePage",
+    component: UpdateTablePage,
+  },
+  {
+    path: "/update/menu/:id",
+    name: "UpdateMenuPage",
+    component: UpdateMenuPage,
+  },
+  {
+    path: "/update/course/:id",
+    name: "UpdateCoursePage",
+    component: UpdateCoursePage,
   },
 ];
 

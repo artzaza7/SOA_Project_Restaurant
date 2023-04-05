@@ -9,7 +9,7 @@
     <!-- </li> -->
     <!-- </ul> -->
     <!-- </div> -->
-    <div class="row jsutify-content-center">
+    <div class="table table-hover table-fixed row justify-content-center ">
         <div class="col-md-4">
             <!-- Display List -->
             <!-- <h1 class="row justify-content-center">Show Users</h1> -->
