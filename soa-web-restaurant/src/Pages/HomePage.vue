@@ -1,6 +1,6 @@
 <style>
 body {
-  background-color: rgb(155, 206, 206);
+  background-color: rgb(171, 231, 231);
 }
 .font1 {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -19,7 +19,7 @@ body {
         need more work and try to get better at them.
       </h6>
 
-      <div class="row mb-5">
+      <div class="row mb-5 ">
         <div class="col-4">
           <div class="card" style="width: 100%">
             <img
