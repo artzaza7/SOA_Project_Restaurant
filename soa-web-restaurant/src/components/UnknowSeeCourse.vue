@@ -15,7 +15,10 @@
           <tr v-for="course in course" v-bind:key="course.course_menu_id">
             <td>{{ course.courseMenuId }}</td>
             <td>{{ course.courseMenuName }}</td>
-            <td><button type="button" class="btn btn-success">View Menu</button></td>
+            <td>
+              <!-- <button type="button" class="btn btn-success">View Menu</button> -->
+              <router-link :to="{ name: 'UnknowSeeMenuInCourse', params: { name: course.courseMenuName } }" class="btn btn-success">Detail Course</router-link>
+            </td>
             
           </tr>
         </tbody>
