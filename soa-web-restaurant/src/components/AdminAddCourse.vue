@@ -30,6 +30,7 @@
                     <tr>
                         <th>Course Menu ID</th>
                         <th>Course Menu Name</th>
+                        <th>Detail</th>
                         <th>Update</th>
                         <th>Delete</th>
                         <!-- <th>Menu In Course ID</th>
@@ -44,6 +45,9 @@
                     <tr v-for="courseMenu in coursemenus" :key="courseMenu.menuInCourseId">
                         <td>{{ courseMenu.courseMenuId }}</td>
                         <td>{{ courseMenu.courseMenuName }}</td>
+                        <td>
+                            <router-link :to="{ name: 'AdminDetailCourse', params: { name: courseMenu.courseMenuName } }" class="btn btn-success">Detail Course</router-link>
+                        </td>
                         <td><router-link :to="{ name: 'UpdateCoursePage', params: { id: courseMenu.courseMenuId } }"><button
                                     class="btn btn-warning btn-sm">UPDATE</button></router-link>
                         </td>

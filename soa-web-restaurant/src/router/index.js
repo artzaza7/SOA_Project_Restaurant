@@ -20,6 +20,7 @@ import AdminAddCourse from "@/components/AdminAddCourse.vue";
 import AdminAddMenu from "@/components/AdminAddMenu.vue";
 import AdminAddTable from "@/components/AdminAddTable.vue";
 import AdminAddMenuInCourse from "@/components/AdminAddMenuInCourse.vue";
+import AdminDetailCourse from "@/components/AdminDetailCourse.vue";
 //User
 import userReservation from "@/components/UserReservation.vue";
 import userHistoryReservation from "@/components/UserHistoryReservation.vue";
@@ -90,6 +91,11 @@ const routes = [
   },
 
   //Admin
+  {
+    path: "/adminCourseDetail/:name",
+    name: "AdminDetailCourse",
+    component: AdminDetailCourse
+  },
   {
     path: "/allreservation",
     name: "AdminReservationPage",
