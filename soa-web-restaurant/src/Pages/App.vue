@@ -25,9 +25,9 @@
         <li class="nav-item">
           <router-link to="/Menu" class="nav-link m-1 bg-light btn text-dark">Menu</router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <router-link to="/view" class="nav-link m-1 bg-light btn text-dark">view</router-link>
-        </li>
+        </li> -->
         <li class="nav-item">
           <router-link to="/login" class="nav-link m-1 bg-light btn text-dark">Login</router-link>
         </li>
@@ -49,30 +49,30 @@
   <div v-else>
     <!-- Navbar -->
     <div v-if="user.userType == 'ADMIN' || user.userType == 'admin'">
-      <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
+      <nav class="navbar navbar-dark bg-dark justify-content-between flex-nowrap flex-row">
         <router-link to="/" class="navbar-brand float-left"></router-link>
         <ul class="nav nav-bar flex-row float-right mr-auto">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/" class="nav-link m-1 bg-light btn">{{ user.userType
             }}</router-link>
+          </li> -->
+          <li class="nav-item">
+            <router-link to="/allreservation" class="nav-link m-1 bg-light btn text-dark">Reservation</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/allreservation" class="nav-link m-1 bg-light btn">Reservation</router-link>
+            <router-link to="/allusers" class="nav-link m-1 bg-light btn text-dark">All Users</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/allusers" class="nav-link m-1 bg-light btn">All Users</router-link>
+            <router-link to="/addcourse" class="nav-link m-1 bg-light btn text-dark">Add Courses</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/addcourse" class="nav-link m-1 bg-light btn">Add Courses</router-link>
+            <router-link to="/addmenu" class="nav-link m-1 bg-light btn text-dark">Add Menu</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/addmenu" class="nav-link m-1 bg-light btn">Add Menu</router-link>
+            <router-link to="/addtable" class="nav-link m-1 bg-light btn text-dark">Add Table</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/addtable" class="nav-link m-1 bg-light btn">Add Table</router-link>
-          </li>
-          <li class="nav-item">
-            <button @click="logout" class="nav-link m-1 bg-light btn">Logout</button>
+            <button @click="logout" class="nav-link m-1 bg-light btn text-dark">Logout</button>
           </li>
         </ul>
       </nav>
@@ -103,9 +103,9 @@
             <router-link to="/userHistoryReservation" class="nav-link m-1 bg-light btn text-dark">History Reservation</router-link>
           </li>
           
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/view" class="nav-link m-1 bg-light btn text-dark">view</router-link>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <button @click="logout" class="nav-link m-1 bg-light btn text-dark">Logout</button>

@@ -18,9 +18,10 @@
                 <div class="col-md-4">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Update Reservation ID: {{ $route.params.id
                     }}</span>
+                    <br>
                     <span class="input-group-text" id="inputGroup-sizing-sm">Status</span>
                     <div class="row justify-content-center">
-                        <select class="custom-select" name="status" id="status" v-model="selected">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="status" id="status" v-model="selected">
                             <!-- <option v-for="s in status" :key="s.id"value="">{s.name}</option> -->
                             <option v-for="s in status" :key="s.id" :value="s.name">{{ s.name }}</option>
                         </select>

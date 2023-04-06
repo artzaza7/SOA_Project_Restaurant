@@ -22,7 +22,7 @@
                             <input type="text" class="form-control" aria-label="Small"
                                 aria-describedby="inputGroup-sizing-sm" id="tableRestaurantCode"
                                 v-model="table.tableRestaurantCode" required>
-
+                            <br>
                             <span class="input-group-text" id="inputGroup-sizing-sm">Number of Chairs</span>
                             <input type="number" class="form-control" aria-label="Small"
                                 aria-describedby="inputGroup-sizing-sm" id="tableRestaurantNumberOfChair"

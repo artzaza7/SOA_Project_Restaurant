@@ -22,15 +22,25 @@
                             <span class="input-group-text" id="inputGroup-sizing-sm">Menu Name</span>
                             <input type="text" class="form-control" aria-label="Small"
                                 aria-describedby="inputGroup-sizing-sm" v-model="menuData.menuName" required>
+                            <br>
 
                             <span class="input-group-text" id="inputGroup-sizing-sm">Menu Description</span>
                             <textarea class="form-control" rows="3" v-model="menuData.menuDescription" required />
+                            <br>
+
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Menu Type</span>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                                v-model="menuData.menuType" required>
+                                <option v-for="menuType in menuTypeApi" v-bind:key="menuType.menuTypeId"
+                                    v-bind:value="menuType.menuTypeId">{{ menuType.menuTypeName }}</option>
+                            </select>
 
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <button type="submit" class="btn btn-success btn-md mt-4">Add Menu</button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </form>
@@ -82,7 +92,9 @@ export default {
                 menuName: "",
                 menuDescription: "",
                 menuInCourses: [],
+                menuType: ""
             },
+            menuTypeApi: null
         }
     },
     methods: {
@@ -112,6 +124,15 @@ export default {
     },
     created() {
         this.getMenus();
+
+        axios
+            .get(`http://localhost:8080/api/v1/menuType`)
+            .then(response => {
+                this.menuTypeApi = response.data;
+                console.log(this.menuTypeApi)
+            }).catch(error => {
+                console.log(error);
+            });
     }
 }
 </script>
