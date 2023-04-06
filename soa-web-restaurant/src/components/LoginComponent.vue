@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         async login() {
-            let userFromDatabase = await axios.get(`http://localhost:8081/api/v1/users/username/${this.user.username}`);
+            let userFromDatabase = await axios.get(`http://localhost:8080/api/v1/users/username/${this.user.username}`);
             let passwordFromDatabase = userFromDatabase.data.userPassword;
             // console.log(passwordFromDatabase);
             const password = this.user.password;
@@ -57,7 +57,7 @@ export default {
             const isMatch = bcrypt.compareSync(password, passwordFromDatabase);
 
             if (isMatch) {
-                let result = await axios.get(`http://localhost:8081/api/v1/users/?username=${this.user.username}&password=${passwordFromDatabase}`)
+                let result = await axios.get(`http://localhost:8080/api/v1/users/?username=${this.user.username}&password=${passwordFromDatabase}`)
                 if (result.status == 200) {
                     alert("Login Success!!!")
                     localStorage.setItem('user-info', JSON.stringify(result.data));

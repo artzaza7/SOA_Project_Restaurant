@@ -8,23 +8,23 @@
                     <h3 class="row justify-content-center">Sign Up</h3>
                     <div class="form-group">
                         <label for="text">First Name</label>
-                        <input type="text" class="form-control form-control-lg" v-model="user.userFirstname" required>
+                        <input type="text" class="form-control form-control-lg" v-model="user.userFirstname"  placeholder="First Name"  required>
                     </div>
                     <div class="form-group">
                         <label for="text">Last Name</label>
-                        <input type="text" class="form-control form-control-lg" v-model="user.userLastname" required>
+                        <input type="text" class="form-control form-control-lg" v-model="user.userLastname"  placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Phone</label>
-                        <input type="text" class="form-control form-control-lg" v-model="user.userPhonenumber" required>
+                        <input type="text" class="form-control form-control-lg" v-model="user.userPhonenumber"   placeholder="Phone" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Username</label>
-                        <input type="text" class="form-control form-control-lg" v-model="user.userUsername" required>
+                        <input type="text" class="form-control form-control-lg" v-model="user.userUsername"  placeholder="Username" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Password</label>
-                        <input type="password" class="form-control form-control-lg" v-model="inputPassword" required>
+                        <input type="password" class="form-control form-control-lg" v-model="inputPassword"  placeholder="Password" required>
                     </div>
                     <div class="form-group row justify-content-center m-3">
                         <button type="submit" class="btn btn-dark btn-lg btn-block">Sign up</button>
@@ -175,7 +175,7 @@ label {
 .forgot-password,
 .forgot-password a {
     text-align: right;
-    font-size: 13px;
+    font-size: 17px;
     padding-top: 10px;
     color: #7a7a7a;
     margin: 0;

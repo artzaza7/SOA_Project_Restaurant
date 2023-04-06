@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col">
                 
-                <h4 class="mb-3">Select Table</h4>
+                <h4 class="form-outline mb-3">Select Table</h4>
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="reservation.tableRestaurant" required>
                     <option v-for="table in tables" v-bind:key="table.tableRestaurantId" v-bind:value="table.tableRestaurantId">{{ table.tableRestaurantCode }} Have {{table.tableRestaurantNumberOfChair}} Chair(s)</option>
                 </select>
