@@ -1,8 +1,8 @@
 <template>
-    <div class="row justify-content-center ">
-        <div class="col-md-6">
+    <div class="body">
+        <div class="">
             <!-- Display List -->
-            <h1 class="row justify-content-center mb-5">All Users</h1>
+            <!-- <h1 class="row justify-content-center mb-5">All Users</h1> -->
             <table class="table table-hover table-fixed">
                 <thead>
                     <th>First Name</th>
@@ -43,3 +43,11 @@ export default {
 }
 
 </script>
+<style scoped>
+.body {
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(199, 199, 199, 0.2), 0 6px 20px 0 rgba(70, 70, 70, 0.19);
+}
+</style>

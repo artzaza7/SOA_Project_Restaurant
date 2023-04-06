@@ -27,7 +27,6 @@ export default {
     name: 'UpdateMenuPage',
     data() {
         return {
-            menus: null,
             menuData:
             {
                 menuName: "",
@@ -39,7 +38,7 @@ export default {
     methods: {
         async getMenus() {
             const response = await axios.get(`http://localhost:8080/api/v1/menus/${this.$route.params.id}`);
-            this.menus = response.data;
+            this.menuData = response.data;
             console.log(response.data);
         },
         async updateMenu() {

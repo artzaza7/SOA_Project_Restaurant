@@ -30,10 +30,11 @@
                         <td>{{ table.tableRestaurantId }}</td>
                         <td>{{ table.tableRestaurantCode }}</td>
                         <td>{{ table.tableRestaurantNumberOfChair }}</td>
-                        <td><router-link
-                                :to="{ name: 'UpdateTablePage', params: { id: table.tableRestaurantId } }"><button>UPDATE</button></router-link>
+                        <td><router-link :to="{ name: 'UpdateTablePage', params: { id: table.tableRestaurantId } }"><button
+                                    class="btn btn-warning btn-sm">UPDATE</button></router-link>
                         </td>
-                        <td><button @click="deleteTable(table.tableRestaurantId)">DELETE</button></td>
+                        <td><button @click="deleteTable(table.tableRestaurantId)"
+                                class="btn btn-danger btn-sm">DELETE</button></td>
                         <!-- <td>
                             <ul v-if="table.reservations.length > 0">
                                 <li v-for="(reservation, index) in table.reservations" :key="index">
