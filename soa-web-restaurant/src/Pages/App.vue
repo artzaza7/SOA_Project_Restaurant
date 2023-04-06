@@ -52,10 +52,10 @@
       <nav class="navbar navbar-dark bg-dark justify-content-between flex-nowrap flex-row">
         <router-link to="/" class="navbar-brand float-left"></router-link>
         <ul class="nav nav-bar flex-row float-right mr-auto">
-          <!-- <li class="nav-item">
-            <router-link to="/" class="nav-link m-1 bg-light btn">{{ user.userType
+          <li class="nav-item">
+            <router-link to="/" class="nav-link m-1 bg-light btn text-dark">{{ user.userType
             }}</router-link>
-          </li> -->
+          </li>
           <li class="nav-item">
             <router-link to="/allreservation" class="nav-link m-1 bg-light btn text-dark">Reservation</router-link>
           </li>

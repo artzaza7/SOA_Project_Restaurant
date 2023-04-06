@@ -1,7 +1,6 @@
 <template lang="">
     <div>
         <h1>History Detail</h1>
-        <h1>{{$route.params.id}}</h1>
         <div  class="row justify-content-center">
             <div class="col">
                 <table class="table">

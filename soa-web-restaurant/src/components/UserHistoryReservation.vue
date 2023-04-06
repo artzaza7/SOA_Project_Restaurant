@@ -19,7 +19,7 @@
                         <td>{{reservation.reservationTimeStart}}</td>
                         <td>{{reservation.reservationTimeEnd}}</td>
                         <td>
-                            <router-link :to="{ name: 'userHistoryReservationDetail', params: { id: reservation.reservationId } }" class="btn btn-success">History Reservation</router-link>
+                            <router-link :to="{ name: 'userHistoryReservationDetail', params: { id: reservation.reservationId } }" class="btn btn-success">Detail Reservation</router-link>
                         </td>
                     </tr>
                 </tbody>
