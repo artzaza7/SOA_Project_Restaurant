@@ -7,6 +7,7 @@
             <div>
                 <label for="status">Status:</label>
                 <select name="status" id="status" v-model="selected">
+                    <!-- <option v-for="s in status" :key="s.id"value="">{s.name}</option> -->
                     <option v-for="s in status" :key="s.id" :value="s.name">{{ s.name }}</option>
                 </select>
             </div>

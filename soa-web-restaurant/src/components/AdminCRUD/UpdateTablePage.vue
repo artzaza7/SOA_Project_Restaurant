@@ -26,8 +26,6 @@ export default {
     name: 'UpdateTablePage',
     data() {
         return {
-            tables: null,
-            itemId: null,
             table: {
                 tableRestaurantCode: '',
                 tableRestaurantNumberOfChair: null,
@@ -38,7 +36,7 @@ export default {
     methods: {
         async getTables() {
             const response = await axios.get(`http://localhost:8080/api/v1/tables/${this.$route.params.id}`);
-            this.tables = response.data;
+            this.table = response.data;
             console.log(response.data);
         },
         async updateTable() {

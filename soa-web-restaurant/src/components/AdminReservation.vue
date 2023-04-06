@@ -8,13 +8,15 @@
     <!-- <button @click="deleteReservation(reservation.reservationId)">Delete</button> -->
     <!-- </li> -->
     <!-- </ul> -->
-    <!-- </div> -->
-    <div class="table table-hover table-fixed row justify-content-center ">
-        <div class="col-md-4">
+    <!-- <table> -->
+
+
+    <div class="body">
+        <div class="">
             <!-- Display List -->
             <!-- <h1 class="row justify-content-center">Show Users</h1> -->
             <!-- <button @click="getReservations">Reservations</button> -->
-            <table class="table table-striped">
+            <table class="table table-hover table-fixed">
                 <thead>
                     <th>Id</th>
                     <th>Date</th>
@@ -32,9 +34,11 @@
                         <td>{{ reservation.reservationTimeEnd }}</td>
                         <td>{{ reservation.reservationStatus }}</td>
                         <td><router-link
-                                :to="{ name: 'UpdateReservationPage', params: { id: reservation.reservationId } }"><button>UPDATE</button></router-link>
+                                :to="{ name: 'UpdateReservationPage', params: { id: reservation.reservationId } }"><button
+                                    class="btn btn-warning btn-sm">UPDATE</button></router-link>
                         </td>
-                        <td><button @click="deleteReservation(reservation.reservationId)">DELETE</button></td>
+                        <td><button @click="deleteReservation(reservation.reservationId)"
+                                class="btn btn-danger btn-sm">DELETE</button></td>
                     </tr>
                 </tbody>
                 <!-- <h3>{{ info }}</h3> -->
@@ -73,3 +77,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.body {
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(199, 199, 199, 0.2), 0 6px 20px 0 rgba(70, 70, 70, 0.19);
+}
+</style>
