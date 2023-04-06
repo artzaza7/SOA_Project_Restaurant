@@ -12,7 +12,7 @@ import CreateComponent from "@/components/CreateComponent.vue";
 import UnknowSeeTableVue from "@/components/UnknowSeeTable.vue";
 import UnknowSeeMenuVue from "@/components/UnknowSeeMenu.vue";
 import UnknowSeeCourseVue from "@/components/UnknowSeeCourse.vue";
-
+import UnknowSeeMenuInCourse from "@/components/UnknowSeeMenuInCourse.vue";
 //Admin
 import AdminReservation from "@/components/AdminReservation.vue";
 import AdminAllUsers from "@/components/AdminAllUsers.vue";
@@ -82,6 +82,11 @@ const routes = [
     path: "/Menu",
     name: "UnknowSeeMenuPage",
     component: UnknowSeeMenuVue,
+  },
+  {
+    path: "/CourseDetail/:name",
+    name: "UnknowSeeMenuInCourse",
+    component: UnknowSeeMenuInCourse
   },
 
   //Admin

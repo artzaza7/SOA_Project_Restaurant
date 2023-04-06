@@ -96,7 +96,7 @@ body {
               <div class="card-body">
                 <p class="card-title">Support</p>
                 <p class="">
-                  Mr.Pattrapol Jamjumrus
+                  Mr.Chanakan Srisarutiporn
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ body {
               <div class="card-body">
                 <p class="card-title">Back-end</p>
                 <p class="">
-                  Mr.Pattrapol Jamjumrus
+                  Mr.Rojjanakorn Yaembangyang
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ body {
               <div class="card-body">
                 <p class="card-title">Front-end</p>
                 <p class="">
-                  Mr.Pattrapol Jamjumrus
+                  Mr.Autsadawut Klaymueang
                 </p>
               </div>
             </div>
