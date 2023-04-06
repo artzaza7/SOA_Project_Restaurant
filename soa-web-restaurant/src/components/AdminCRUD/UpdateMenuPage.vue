@@ -1,20 +1,33 @@
 
 <template>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div>
-                <form @submit.prevent="updateMenu">
+    <div class="body">
+        <div class="">
 
-                    <label>Menu Name:</label>
-                    <input type="text" v-model="menuData.menuName" required>
+            <form @submit.prevent="updateMenu">
 
-                    <label>Menu Description:</label>
-                    <input type="text" v-model="menuData.menuDescription" required>
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Menu Name</span>
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+                            v-model="menuData.menuName" required>
 
-                    <button type="submit">Update Menu</button>
-                </form>
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Menu Description</span>
+                        <textarea class="form-control" rows="3" v-model="menuData.menuDescription" required />
 
-            </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 row">
+                                <router-link to="/addmenu"><button type="button"
+                                        class="btn btn-light mt-3">Cancel</button></router-link>
+                            </div>
+                            <div class="col-md-4 ml-4">
+                                <button type="submit" class="btn btn-success btn-md mt-3">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
         </div>
 
     </div>
@@ -52,3 +65,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.body {
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(199, 199, 199, 0.2), 0 6px 20px 0 rgba(70, 70, 70, 0.19);
+}
+</style>

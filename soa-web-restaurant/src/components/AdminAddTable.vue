@@ -9,12 +9,43 @@
     <!-- </li> -->
     <!-- </ul> -->
     <!-- </div> -->
-    <div class="row justify-content-center">
-        <div class="col-md-6">
+    <div class="body">
+        <div class="">
             <!-- Display List -->
             <!-- <h1 class="row justify-content-center">Show Users</h1> -->
             <!-- <button @click="gettabless">tabless</button> -->
-            <table class="table table-hover table-fixed">
+            <div class="top-right">
+                <form @submit.prevent="addData">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Table Restaurant Code</span>
+                            <input type="text" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm" id="tableRestaurantCode"
+                                v-model="table.tableRestaurantCode" required>
+
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Number of Chairs</span>
+                            <input type="number" class="form-control" aria-label="Small"
+                                aria-describedby="inputGroup-sizing-sm" id="tableRestaurantNumberOfChair"
+                                v-model="table.tableRestaurantNumberOfChair" required>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-success btn-md mt-3">Add Table</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <label for="tableRestaurantCode">Table Restaurant Code:</label> -->
+                    <!-- <input type="text" id="tableRestaurantCode" v-model="table.tableRestaurantCode" required> -->
+                    <!-- <br> -->
+                    <!-- <label for="tableRestaurantNumberOfChair">Number of Chairs:</label> -->
+                    <!-- <input type="number" id="tableRestaurantNumberOfChair" v-model="table.tableRestaurantNumberOfChair"
+                        required>
+                    <br> -->
+                    <!-- <button type="submit">Add Data</button> -->
+                </form>
+            </div>
+            <table class="mt-5 table table-hover table-fixed">
                 <thead>
                     <tr>
                         <th>Table ID</th>
@@ -48,18 +79,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="mt-60">
-                <form @submit.prevent="addData">
-                    <label for="tableRestaurantCode">Table Restaurant Code:</label>
-                    <input type="text" id="tableRestaurantCode" v-model="table.tableRestaurantCode" required>
-                    <br>
-                    <label for="tableRestaurantNumberOfChair">Number of Chairs:</label>
-                    <input type="number" id="tableRestaurantNumberOfChair" v-model="table.tableRestaurantNumberOfChair"
-                        required>
-                    <br>
-                    <button type="submit">Add Data</button>
-                </form>
-            </div>
+
         </div>
 
     </div>
@@ -111,3 +131,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.body {
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(199, 199, 199, 0.2), 0 6px 20px 0 rgba(70, 70, 70, 0.19);
+}
+</style>

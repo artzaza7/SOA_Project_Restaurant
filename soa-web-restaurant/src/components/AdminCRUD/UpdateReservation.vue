@@ -1,18 +1,43 @@
 <template>
-    <div>
-        <h2>Update Reservation ID: {{ $route.params.id }}</h2>
+    <div class="body">
+        <!-- <h2>Update Reservation ID: {{ $route.params.id }}</h2> -->
         <form>
             <!-- <label>Status:</label> -->
             <!-- <input type="text" v-model="reservation.reservationStatus"> -->
-            <div>
+            <!-- <div>
                 <label for="status">Status:</label>
                 <select name="status" id="status" v-model="selected">
-                    <!-- <option v-for="s in status" :key="s.id"value="">{s.name}</option> -->
-                    <option v-for="s in status" :key="s.id" :value="s.name">{{ s.name }}</option>
+                    <option v-for="s in status" :key="s.id"value="">{s.name}</option> -->
+            <!-- <option v-for="s in status" :key="s.id" :value="s.name">{{ s.name }}</option>
                 </select>
             </div>
             <p>You selected: {{ selected }}</p>
-            <button @click.prevent="updateReservation">Update</button>
+            <button @click.prevent="updateReservation">Update</button> -->
+
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Update Reservation ID: {{ $route.params.id
+                    }}</span>
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Status</span>
+                    <div class="row justify-content-center">
+                        <select class="custom-select" name="status" id="status" v-model="selected">
+                            <!-- <option v-for="s in status" :key="s.id"value="">{s.name}</option> -->
+                            <option v-for="s in status" :key="s.id" :value="s.name">{{ s.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 row">
+                            <router-link to="/allreservation"><button type="button"
+                                    class="btn btn-light mt-3">Cancel</button></router-link>
+                        </div>
+                        <div class="col-md-3 ml-4">
+                            <button type="submit" class="btn btn-success btn-md mt-3"
+                                @click.prevent="updateReservation">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 </template>
@@ -51,4 +76,12 @@ export default {
     },
 }
 </script>
+<style scoped>
+.body {
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgba(199, 199, 199, 0.2), 0 6px 20px 0 rgba(70, 70, 70, 0.19);
+}
+</style>
     
