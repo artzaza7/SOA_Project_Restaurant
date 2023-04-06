@@ -1,5 +1,5 @@
 package th.ac.ku.kps.eng.cpe.soaProject.model;
-// Generated Mar 27, 2023, 9:07:29 PM by Hibernate Tools 6.0.2.Final
+// Generated Apr 6, 2023, 9:43:25 AM by Hibernate Tools 6.0.2.Final
 
 import java.sql.Date;
 import java.sql.Time;
@@ -13,11 +13,11 @@ public class Reservation implements java.io.Serializable {
 
 	private Integer reservationId;
 	@JsonIgnore
-	private User user;
+	private TableRestaurant tableRestaurant;
 	@JsonIgnore
 	private CourseMenu courseMenu;
 	@JsonIgnore
-	private TableRestaurant tableRestaurant;
+	private User user;
 	private Date reservationDate;
 	private Time reservationTimeStart;
 	private Time reservationTimeEnd;
@@ -26,17 +26,17 @@ public class Reservation implements java.io.Serializable {
 	public Reservation() {
 	}
 
-	public Reservation(User user, CourseMenu courseMenu, TableRestaurant tableRestaurant) {
-		this.user = user;
-		this.courseMenu = courseMenu;
+	public Reservation(TableRestaurant tableRestaurant, CourseMenu courseMenu, User user) {
 		this.tableRestaurant = tableRestaurant;
+		this.courseMenu = courseMenu;
+		this.user = user;
 	}
 
-	public Reservation(User user, CourseMenu courseMenu, TableRestaurant tableRestaurant, Date reservationDate,
+	public Reservation(TableRestaurant tableRestaurant, CourseMenu courseMenu, User user, Date reservationDate,
 			Time reservationTimeStart, Time reservationTimeEnd, String reservationStatus) {
-		this.user = user;
-		this.courseMenu = courseMenu;
 		this.tableRestaurant = tableRestaurant;
+		this.courseMenu = courseMenu;
+		this.user = user;
 		this.reservationDate = reservationDate;
 		this.reservationTimeStart = reservationTimeStart;
 		this.reservationTimeEnd = reservationTimeEnd;
@@ -51,12 +51,12 @@ public class Reservation implements java.io.Serializable {
 		this.reservationId = reservationId;
 	}
 
-	public User getUser() {
-		return this.user;
+	public TableRestaurant getTableRestaurant() {
+		return this.tableRestaurant;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setTableRestaurant(TableRestaurant tableRestaurant) {
+		this.tableRestaurant = tableRestaurant;
 	}
 
 	public CourseMenu getCourseMenu() {
@@ -67,12 +67,12 @@ public class Reservation implements java.io.Serializable {
 		this.courseMenu = courseMenu;
 	}
 
-	public TableRestaurant getTableRestaurant() {
-		return this.tableRestaurant;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setTableRestaurant(TableRestaurant tableRestaurant) {
-		this.tableRestaurant = tableRestaurant;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Date getReservationDate() {
