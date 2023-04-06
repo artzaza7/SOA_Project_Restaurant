@@ -1,5 +1,10 @@
+<!-- <style>
+/* .row{
+    font-family: Georgia, "Times New Roman", Times, serif;
+} */
+</style> -->
 <template>
-    <div class="row jsutify-content-center">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <!-- Display List -->
             <h1 class="row justify-content-center">Show Users</h1>

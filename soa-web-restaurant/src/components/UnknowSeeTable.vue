@@ -1,9 +1,9 @@
 <template>
-    <div class="row jsutify-content-center">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <!-- Update Content -->
             <h1>See Table</h1>
-            <table class="table table-hover table-dark">
+            <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Table_Code</th>
