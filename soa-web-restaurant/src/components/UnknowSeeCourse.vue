@@ -8,12 +8,14 @@
           <tr>
             <th scope="col">Menu_Id</th>
             <th scope="col">Last</th>
+            <th scope="col">View Menu</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="course in course" v-bind:key="course.course_menu_id">
             <td>{{ course.courseMenuId }}</td>
             <td>{{ course.courseMenuName }}</td>
+            <td><button type="button" class="btn btn-success">View Menu</button></td>
             
           </tr>
         </tbody>
