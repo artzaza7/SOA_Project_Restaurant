@@ -51,8 +51,8 @@ public class MenuInCourseController {
 	@PostMapping("")
 	public ResponseEntity<String> createMenuInCourse(@RequestBody JsonNode body) {
 		MenuInCourse menuInCourse = new MenuInCourse();
-		Menu menu = menuService.getMenuByID(body.get("menu").asInt());
-		CourseMenu courseMenu = coursMenuService.getCourseMenuByID(body.get("courseMenu").asInt());
+		Menu menu = menuService.getMenuByID(body.get("menuId").asInt());
+		CourseMenu courseMenu = coursMenuService.getCourseMenuByID(body.get("courseMenuId").asInt());
 		menuInCourse.setCourseMenu(courseMenu);
 		menuInCourse.setMenu(menu);
 		menuInCourseService.createOrUpdateMenuInCourse(menuInCourse);
@@ -64,8 +64,8 @@ public class MenuInCourseController {
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateMenuInCourse(@RequestBody JsonNode body, @PathVariable int id) {
 		MenuInCourse menuInCourse = new MenuInCourse();
-		Menu menu = menuService.getMenuByID(body.get("menu").asInt());
-		CourseMenu courseMenu = coursMenuService.getCourseMenuByID(body.get("courseMenu").asInt());
+		Menu menu = menuService.getMenuByID(body.get("menuId").asInt());
+		CourseMenu courseMenu = coursMenuService.getCourseMenuByID(body.get("courseMenuId").asInt());
 		menuInCourse.setMenuInCourseId(id);
 		menuInCourse.setCourseMenu(courseMenu);
 		menuInCourse.setMenu(menu);
