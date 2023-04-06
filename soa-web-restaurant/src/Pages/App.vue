@@ -64,7 +64,7 @@
           </li>
           <li class="nav-item">
             <router-link to="/addcourse" class="nav-link m-1 bg-light btn">Add Courses</router-link>
-          </li>>
+          </li>
           <li class="nav-item">
             <router-link to="/addmenu" class="nav-link m-1 bg-light btn">Add Menu</router-link>
           </li>
