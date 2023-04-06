@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generated Apr 6, 2023, 9:43:25 AM by Hibernate Tools 6.0.2.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class catalog="soa66_05" name="th.ac.ku.kps.eng.cpe.soaProject.model.CourseMenu" optimistic-lock="none" table="course_menu">
+    <class catalog="SOA66_05" name="th.ac.ku.kps.eng.cpe.soaProject.model.CourseMenu" optimistic-lock="none" table="course_menu">
         <id name="courseMenuId" type="java.lang.Integer">
             <column name="course_menu_id"/>
             <generator class="identity"/>
