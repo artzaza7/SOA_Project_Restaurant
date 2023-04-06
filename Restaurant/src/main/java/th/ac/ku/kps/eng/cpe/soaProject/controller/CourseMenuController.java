@@ -68,8 +68,6 @@ public class CourseMenuController {
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateReservation(@PathVariable int id, @RequestBody CourseMenu courseMenu) {
 		courseMenu.setCourseMenuId(id);
-		courseMenu.setMenuInCourses(null);
-		courseMenu.setReservations(null);
 		CourseMenu check = courseMenuService.getCourseMenuByName(courseMenu.getCourseMenuName());
 		if(check == null || check.getCourseMenuId() == id) {
 			courseMenuService.updateCourseMenu(courseMenu);

@@ -33,7 +33,7 @@ public class UserController {
 	
 	@GetMapping("")
 	public List<User> getUsers() {
-		return (List<User>)userService.getUsers();
+		return (List<User>)userService.getAllUsers();
 	}
 	
 	@GetMapping("/{id}")
@@ -63,7 +63,6 @@ public class UserController {
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User user) {
 		user.setUserId(id);
-		user.setReservations(null);
 		User check = getUserByUsername(user.getUserUsername());
 		if(check == null || check.getUserId() == id) {
 			userService.updateUser(user);

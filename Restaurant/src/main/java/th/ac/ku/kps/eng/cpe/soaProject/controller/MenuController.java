@@ -1,6 +1,8 @@
 package th.ac.ku.kps.eng.cpe.soaProject.controller;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,8 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import io.swagger.v3.oas.annotations.Parameter;
+import th.ac.ku.kps.eng.cpe.soaProject.model.CourseMenu;
 import th.ac.ku.kps.eng.cpe.soaProject.model.Menu;
+import th.ac.ku.kps.eng.cpe.soaProject.model.MenuInCourse;
 import th.ac.ku.kps.eng.cpe.soaProject.model.MenuType;
+import th.ac.ku.kps.eng.cpe.soaProject.service.CourseMenuService;
+import th.ac.ku.kps.eng.cpe.soaProject.service.MenuInCourseService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuService;
 import th.ac.ku.kps.eng.cpe.soaProject.service.MenuTypeService;
 
@@ -36,6 +42,10 @@ public class MenuController {
 	private MenuService menuService;
 	@Autowired
 	private MenuTypeService menuTypeService;
+	@Autowired
+	private CourseMenuService courseMenuService;
+	@Autowired
+	private MenuInCourseService menuInCourseService;
 
 	@GetMapping("")
 	public List<Menu> getMenu() {
@@ -64,10 +74,14 @@ public class MenuController {
 		menu.setMenuName(body.get("menuName").asText());
 		menu.setMenuDescription(body.get("menuDescription").asText());
 		menu.setMenuType(menuType);
-		menu.setMenuInCourses(null);
+//		CourseMenu c = courseMenuService.getCourseMenuByID(body.get("courseMenu").asInt());
+//		MenuInCourse mc = new MenuInCourse();
+//		mc.setCourseMenu(c);
+//		mc.setMenu(menu);
 		Menu check = menuService.getMenuByName(menu.getMenuName());
 		if(check == null) {
 			menuService.createOrUpdateMenu(menu);
+//			menuInCourseService.createOrUpdateMenuInCourse(mc);
 			String successMessage = "Create Menu Successfully.";
 			ResponseEntity<String> response = new ResponseEntity<String>(successMessage, HttpStatus.OK);
 			return response;
@@ -79,11 +93,12 @@ public class MenuController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateMenu(@RequestBody Menu menu,@PathVariable int id) {
+		Menu m = menuService.getMenuByID(id);
 		MenuType menuType = new MenuType();
 		menuType = menuTypeService.getMenuTypeByMenuID(id);
 		menu.setMenuId(id);
 		menu.setMenuType(menuType);
-		menu.setMenuInCourses(null);
+		menu.setMenuInCourses(m.getMenuInCourses());
 		Menu check = menuService.getMenuByName(menu.getMenuName());
 		if(check == null || check.getMenuId() == id) {
 			menuService.createOrUpdateMenu(menu);

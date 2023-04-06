@@ -62,7 +62,6 @@ public class MenuTypeController {
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateMenuType(@RequestBody MenuType menu, @PathVariable int id) {
 		menu.setMenuTypeId(id);
-		menu.setMenus(null);
 		MenuType check = menuTypeService.getMenuTypeByName(menu.getMenuTypeName());
 		if(check == null || check.getMenuTypeId() == id) {
 			menuTypeService.createOrUpdateMenuType(menu);

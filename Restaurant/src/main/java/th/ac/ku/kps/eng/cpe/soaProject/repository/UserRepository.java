@@ -1,5 +1,7 @@
 package th.ac.ku.kps.eng.cpe.soaProject.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -16,5 +18,8 @@ public interface UserRepository extends CrudRepository<User, Integer>{
 	
 	@Query("from User u where u.userUsername =:name")
 	public User findByName(@Param("name")String name);
+	
+	@Query("from User u where u.userType = 'USER'")
+	public List<User> getAllUser();
 	
 }

@@ -70,7 +70,6 @@ public class TableRestaurantController {
 	@PutMapping("/{id}")
 	public ResponseEntity<String> updateTable(@PathVariable int id, @RequestBody TableRestaurant table) {
 		table.setTableRestaurantId(id);
-		table.setReservations(null);
 		TableRestaurant check = tableRestaurantService.getTableByCode(table.getTableRestaurantCode());
 		if(check == null || check.getTableRestaurantId() == id) {
 			tableRestaurantService.updateTable(table);
