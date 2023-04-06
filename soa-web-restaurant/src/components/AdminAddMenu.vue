@@ -44,7 +44,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
             <table class="mt-5 table table-hover table-fixed">
                 <thead>
@@ -113,6 +112,7 @@ export default {
                         this.menuData.menuName = '';
                         this.menuData.menuDescription = '';
                         this.menuData.menuInCourses = [];
+                        this.menuData.menuType = "";
                         window.location.reload();
                     }
                 )

@@ -19,7 +19,7 @@ import AdminAllUsers from "@/components/AdminAllUsers.vue";
 import AdminAddCourse from "@/components/AdminAddCourse.vue";
 import AdminAddMenu from "@/components/AdminAddMenu.vue";
 import AdminAddTable from "@/components/AdminAddTable.vue";
-
+import AdminAddMenuInCourse from "@/components/AdminAddMenuInCourse.vue";
 //User
 import userReservation from "@/components/UserReservation.vue";
 import userHistoryReservation from "@/components/UserHistoryReservation.vue";
@@ -89,6 +89,11 @@ const routes = [
     path: "/allreservation",
     name: "AdminReservationPage",
     component: AdminReservation,
+  },
+  {
+    path: "/addmenuInCoure",
+    name: "AdminAddMenuInCourse",
+    component: AdminAddMenuInCourse
   },
   {
     path: "/allusers",

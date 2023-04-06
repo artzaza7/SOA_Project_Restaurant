@@ -66,6 +66,9 @@
             <router-link to="/addcourse" class="nav-link m-1 bg-light btn text-dark">Add Courses</router-link>
           </li>
           <li class="nav-item">
+            <router-link to="/addmenuInCoure" class="nav-link m-1 bg-light btn text-dark">Add Menu In Course</router-link>
+          </li>
+          <li class="nav-item">
             <router-link to="/addmenu" class="nav-link m-1 bg-light btn text-dark">Add Menu</router-link>
           </li>
           <li class="nav-item">
